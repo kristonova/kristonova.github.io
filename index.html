@@ -1,44 +1,442 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Krisostomus Nova Rahmanto - CV</title>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisostomus Nova Rahmanto - Profil Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              slate: {
-                850: '#151f32',
-              }
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-          },
-        },
-      }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
-      body { font-family: 'Inter', sans-serif; }
+        @import url('https://fonts.cdnfonts.com/css/inter');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+        }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
-  }
-}
-</script>
 </head>
-  <body class="bg-slate-50 text-slate-800">
-    <div id="root"></div>
-  </body>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-bold text-xl text-blue-600 tracking-tight">KNR.</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tentang</a>
+                        <a href="#experience" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pengalaman</a>
+                        <a href="#education" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pendidikan</a>
+                        <a href="#publications" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Publikasi</a>
+                        <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">Kontak</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 focus:outline-none">
+                        <i class="ri-menu-line text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-b" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Tentang</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Pengalaman</a>
+                <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Pendidikan</a>
+                <a href="#publications" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Publikasi</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 font-bold hover:bg-slate-50">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-blue-50/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold tracking-wide uppercase mb-6">
+                Data Scientist & Enterprise Architect
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
+                Krisostomus Nova <span class="text-blue-600">Rahmanto</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600">
+                CEO & Co-founder PT Sadasa Akademi Indonesia. Berdedikasi untuk menjembatani kesenjangan talenta digital dan menyediakan solusi data strategis bagi sektor pemerintah dan swasta.
+            </p>
+            
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#contact" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 shadow-lg hover:shadow-xl transition-all">
+                    Hubungi Saya
+                </a>
+                <a href="https://dto.kemkes.go.id/Digital-Transformation-Strategy-2024.pdf" target="_blank" class="px-8 py-3 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 md:py-4 md:text-lg md:px-10 shadow-sm hover:shadow-md transition-all flex items-center gap-2">
+                    <i class="ri-file-text-line"></i> Lihat Portofolio
+                </a>
+            </div>
+
+            <div class="mt-12 flex justify-center space-x-6 text-slate-400">
+                <a href="mailto:vista.indonesia@gmail.com" class="hover:text-blue-600 transition-colors"><i class="ri-mail-line text-2xl"></i></a>
+                <a href="tel:+6285643877967" class="hover:text-blue-600 transition-colors"><i class="ri-phone-line text-2xl"></i></a>
+                <a href="#" class="hover:text-blue-600 transition-colors"><i class="ri-linkedin-box-line text-2xl"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-10 lg:mb-0 fade-in">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-100 aspect-[4/3] flex items-center justify-center">
+                        <!-- Placeholder for Image -->
+                        <div class="text-center p-8">
+                            <i class="ri-user-star-line text-6xl text-slate-300 mb-4"></i>
+                            <p class="text-slate-400 font-medium">Foto Profil</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Tentang Saya</h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Saya adalah seorang profesional di bidang Data Science dan Arsitektur Enterprise dengan pengalaman luas dalam mengelola proyek strategis nasional. Saat ini menjabat sebagai <strong>Chief Executive Officer & Co-founder</strong> di PT Sadasa Akademi Indonesia, di mana misi saya adalah membuat ilmu data dapat diakses oleh semua orang.
+                    </p>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        Saya memiliki rekam jejak yang terbukti dalam merancang arsitektur data untuk instansi pemerintah seperti Kementerian Kesehatan, Dewan Energi Nasional, dan BUMN Farmasi menggunakan metodologi TOGAF. Saya juga aktif sebagai pembicara dan pelatih dalam berbagai seminar nasional mengenai Big Data dan Transformasi Digital.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                            <h3 class="font-bold text-blue-600 text-xl">8+</h3>
+                            <p class="text-sm text-slate-500">Tahun Pengalaman</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                            <h3 class="font-bold text-blue-600 text-xl">20+</h3>
+                            <p class="text-sm text-slate-500">Proyek Strategis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-slate-900">Pengalaman Profesional</h2>
+                <p class="mt-4 text-slate-600">Jejak karir dalam arsitektur data dan kepemimpinan</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <div class="timeline-line"></div>
+                
+                <!-- Item 1 -->
+                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
+                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">2019 - Sekarang</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2">PT Sadasa Akademi Indonesia</h3>
+                        </div>
+                        <div class="md:col-span-4 timeline-item relative md:pl-8">
+                            <h4 class="text-xl font-bold text-slate-800">Chief Executive Officer & Co-founder</h4>
+                            <p class="text-slate-500 text-sm mb-4">Yogyakarta, Indonesia</p>
+                            <p class="text-slate-600 mb-4">
+                                Bertanggung jawab atas semua aspek manajemen eksekutif, keuangan, dan operasional. Memimpin perusahaan dalam menyediakan layanan pelatihan data analytics, konsultasi, dan solusi teknologi untuk sektor pemerintah dan swasta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
+                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
+                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Mar 2022 - Sep 2022</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2">PT Bio Farma (Persero)</h3>
+                        </div>
+                        <div class="md:col-span-4 timeline-item relative md:pl-8">
+                            <h4 class="text-xl font-bold text-slate-800">Data Architect Project Manager</h4>
+                            <p class="text-slate-600 mb-4">
+                                Mengawasi orkestrasi tim Business Architect dan Data Architect untuk mencapai Arsitektur Data Holding BUMN Farmasi. Merancang kerangka kerja proyek menggunakan metodologi TOGAF dan melakukan wawancara dengan 14 perusahaan anggota holding.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
+                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
+                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Apr 2022 - Agu 2022</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2">Perumda Tirta Khatulistiwa</h3>
+                        </div>
+                        <div class="md:col-span-4 timeline-item relative md:pl-8">
+                            <h4 class="text-xl font-bold text-slate-800">Advisor IT Master Plan</h4>
+                            <p class="text-slate-600 mb-4">
+                                Membuat kerangka kerja komprehensif untuk Masterplan divisi IT. Bekerja sama dengan AWS untuk mengimplementasikan solusi teknologi cloud dan mengoptimalkan infrastruktur IT.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
+                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
+                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Nov 2021 - Des 2021</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2">Kementerian Kesehatan RI</h3>
+                        </div>
+                        <div class="md:col-span-4 timeline-item relative md:pl-8">
+                            <h4 class="text-xl font-bold text-slate-800">Data Architect</h4>
+                            <p class="text-slate-600 mb-4">
+                                Mengembangkan Arsitektur Data yang robust menggunakan Framework TOGAF. Berkolaborasi dengan UNDP dan USAID untuk menciptakan ekosistem data yang scalable dan aman.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
+                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
+                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Nov 2021 - Jul 2022</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2">Dewan Energi Nasional (SINAR)</h3>
+                        </div>
+                        <div class="md:col-span-4 timeline-item relative md:pl-8">
+                            <h4 class="text-xl font-bold text-slate-800">Data Model Designer</h4>
+                            <p class="text-slate-600 mb-4">
+                                Merancang model data energi Indonesia yang rumit dan Entity Relationship Diagram untuk sistem informasi SPEND.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certificates -->
+    <section id="education" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div class="fade-in">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
+                        <i class="ri-graduation-cap-line text-blue-600"></i> Pendidikan
+                    </h2>
+                    <div class="space-y-8">
+                        <div class="border-l-4 border-blue-600 pl-6">
+                            <h3 class="text-xl font-bold text-slate-900">Master of Computer Science (Data Science)</h3>
+                            <p class="text-blue-600 font-medium">EURECOM, Perancis</p>
+                            <p class="text-slate-500 text-sm">Sep 2024 - Jun 2026</p>
+                            <p class="text-slate-600 mt-2 text-sm">Beasiswa LPDP PK-237</p>
+                        </div>
+                        <div class="border-l-4 border-slate-300 pl-6">
+                            <h3 class="text-xl font-bold text-slate-900">S.Kom. Computer Science (Honours)</h3>
+                            <p class="text-slate-700 font-medium">Universitas Gadjah Mada</p>
+                            <p class="text-slate-500 text-sm">Sep 2013 - Des 2017</p>
+                            <p class="text-slate-600 mt-2 text-sm">GPA: 3.87/4.0. Thesis: "Data Preservation Process in Big Data Environment"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div class="fade-in">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
+                        <i class="ri-certificate-line text-blue-600"></i> Sertifikasi
+                    </h2>
+                    <div class="grid gap-4">
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-slate-800">Big Data Scientist</h4>
+                            <p class="text-sm text-slate-600">BNSP (2021)</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-slate-800">Junior Data Scientist</h4>
+                            <p class="text-sm text-slate-600">BNSP (2021)</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-slate-800">Workplace Assessment (IT Skills)</h4>
+                            <p class="text-sm text-slate-600">BNSP (2019)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications & Talks -->
+    <section id="publications" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold">Publikasi & Presentasi</h2>
+                <p class="mt-4 text-slate-400">Kontribusi pemikiran dalam konferensi dan seminar nasional</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 p-6 rounded-xl fade-in">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">Paper Konferensi</h3>
+                    <ul class="space-y-4 text-slate-300 text-sm">
+                        <li>
+                            <strong>"Data Preservation Process in Big Data Environment..."</strong><br>
+                            ICST 2018. <a href="https://ieeexplore.ieee.org/document/8528669" class="text-blue-400 hover:underline" target="_blank">DOI Link</a>
+                        </li>
+                        <li>
+                            <strong>"Development of the Health Information Analytics Dashboard..."</strong><br>
+                            ISMoHIM 2020.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800 p-6 rounded-xl fade-in">
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">Undangan Seminar & Webinar</h3>
+                    <ul class="space-y-3 text-slate-300 text-sm">
+                        <li><i class="ri-mic-line mr-2"></i> "Becoming A Successful Young Enterpreneur" - IPB (2020)</li>
+                        <li><i class="ri-mic-line mr-2"></i> "Big Data Analytics for Covid-19 Response" - UKSW (2020)</li>
+                        <li><i class="ri-mic-line mr-2"></i> "Data Science Fundamentals" - IndigoSpace (2021)</li>
+                        <li><i class="ri-mic-line mr-2"></i> "CyberTalk Ilmu Data" - PANDI (2021)</li>
+                        <li><i class="ri-mic-line mr-2"></i> "Mengenal penerapan data arsitektur..." - UGM (2022)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Service -->
+    <section class="py-20 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 mb-10 text-center fade-in">Pengabdian Masyarakat</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">KAGAMA</h3>
+                    <p class="text-sm text-slate-600 mb-2">Bidang 2 Pengurus Pusat (Pusat Data)</p>
+                    <p class="text-sm text-slate-500">Mengelola inisiatif manajemen data alumni dan mengembangkan sistem terpusat untuk records alumni UGM.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">KAMIPAGAMA</h3>
+                    <p class="text-sm text-slate-600 mb-2">Anggota Aktif</p>
+                    <p class="text-sm text-slate-500">Mendorong inisiatif pengembangan bisnis dan menjembatani hubungan antara mahasiswa, alumni, dan universitas.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">ADITIF</h3>
+                    <p class="text-sm text-slate-600 mb-2">Hubungan Pemerintah</p>
+                    <p class="text-sm text-slate-500">Membangun hubungan kuat dengan entitas pemerintah untuk mendukung industri kreatif digital di Indonesia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Hubungi Saya</h2>
+            <p class="text-slate-600 mb-10">
+                Tertarik untuk berkolaborasi dalam proyek Data Science atau Arsitektur Enterprise? Jangan ragu untuk menghubungi saya.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-6 text-left">
+                <a href="mailto:vista.indonesia@gmail.com" class="flex items-center p-4 bg-slate-50 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors group">
+                    <div class="bg-white p-3 rounded-full shadow-sm mr-4 group-hover:bg-blue-100">
+                        <i class="ri-mail-send-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-slate-500">Email</p>
+                        <p class="font-medium">vista.indonesia@gmail.com</p>
+                    </div>
+                </a>
+                <a href="tel:+6285643877967" class="flex items-center p-4 bg-slate-50 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors group">
+                    <div class="bg-white p-3 rounded-full shadow-sm mr-4 group-hover:bg-blue-100">
+                        <i class="ri-smartphone-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-slate-500">Telepon / WhatsApp</p>
+                        <p class="font-medium">+62 856 4387 7967</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-10 pt-10 border-t border-slate-100">
+                <p class="text-slate-400 text-sm">
+                    &copy; 2024 Krisostomus Nova Rahmanto. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
 </html>
+
