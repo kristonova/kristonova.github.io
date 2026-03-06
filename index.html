@@ -3,154 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krisostomus Nova Rahmanto - Profil Profesional</title>
+    <title>Krisostomus Nova Rahmanto - Data Scientist & Enterprise Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef4ff',
+                            100: '#dce8ff',
+                            200: '#b2ceff',
+                            300: '#76a9ff',
+                            400: '#3a7dfc',
+                            500: '#1a5ce6',
+                            600: '#0e44c7',
+                            700: '#1038a1',
+                            800: '#143285',
+                            900: '#162d6e',
+                            950: '#0f1d47',
+                        },
+                        accent: {
+                            50: '#fdf4f3',
+                            100: '#fce8e6',
+                            200: '#f9d5d1',
+                            300: '#f3b5ae',
+                            400: '#ea8b80',
+                            500: '#dc6558',
+                            600: '#c74a3d',
+                            700: '#a73c30',
+                            800: '#8b352c',
+                            900: '#74322b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.cdnfonts.com/css/inter');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #3b82f6;
-            border: 2px solid #fff;
-            box-shadow: 0 0 0 2px #3b82f6;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #e5e7eb;
-        }
-
-        .fade-in {
+        /* Elegant Animations */
+        .fade-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .fade-in.visible {
+        .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        .fade-up-delay-1 { transition-delay: 0.1s; }
+        .fade-up-delay-2 { transition-delay: 0.2s; }
+        .fade-up-delay-3 { transition-delay: 0.3s; }
 
+        /* Glass Navigation */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        .glass-nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        /* Hero subtle gradient animation */
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef4ff 30%, #f8fafc 60%, #fdf4f3 100%);
+            background-size: 300% 300%;
+            animation: gradientShift 12s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Profile image elegant border */
+        .profile-frame {
+            position: relative;
+        }
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 1.25rem;
+            background: linear-gradient(135deg, #1a5ce6, #dc6558, #1a5ce6);
+            background-size: 200% 200%;
+            animation: borderGlow 4s ease infinite;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Timeline */
+        .timeline-connector {
+            position: absolute;
+            left: 23px;
+            top: 48px;
+            bottom: -48px;
+            width: 2px;
+            background: linear-gradient(to bottom, #dce8ff, #e2e8f0);
+        }
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1a5ce6;
+            box-shadow: 0 0 0 4px #eef4ff;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+        .timeline-dot-muted {
+            background: #94a3b8;
+            box-shadow: 0 0 0 4px #f1f5f9;
+        }
+
+        /* Elegant card hover */
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px -8px rgba(0,0,0,0.12);
+        }
+
+        /* Section label spacing */
+        .section-label {
+            letter-spacing: 0.15em;
+        }
+
+        /* Smooth link underline */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #1a5ce6;
+            transition: width 0.3s ease, left 0.3s ease;
+            border-radius: 1px;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Stat counter gradient */
+        .stat-number {
+            background: linear-gradient(135deg, #1a5ce6, #0e44c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Subtle dot pattern */
+        .pattern-overlay {
+            background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
+            background-size: 24px 24px;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-white text-slate-700 antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="font-bold text-xl text-blue-600 tracking-tight">KNR.</span>
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-500" id="navbar">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-18 py-4">
+                <a href="#" class="flex items-center gap-0.5 group">
+                    <span class="font-black text-2xl tracking-tighter text-primary-600 group-hover:text-primary-700 transition-colors">K</span>
+                    <span class="font-light text-2xl tracking-tighter text-slate-400">N</span>
+                    <span class="font-light text-2xl tracking-tighter text-slate-400">R</span>
+                    <span class="text-primary-500 font-black text-2xl">.</span>
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#about" class="nav-link px-4 py-2 text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Tentang</a>
+                    <a href="#experience" class="nav-link px-4 py-2 text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Pengalaman</a>
+                    <a href="#education" class="nav-link px-4 py-2 text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Pendidikan</a>
+                    <a href="#publications" class="nav-link px-4 py-2 text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Publikasi</a>
+                    <div class="w-px h-5 bg-slate-200 mx-2"></div>
+                    <a href="#contact" class="ml-1 px-5 py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-all hover:shadow-lg hover:shadow-primary-600/25">Kontak</a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tentang</a>
-                        <a href="#experience" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pengalaman</a>
-                        <a href="#education" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pendidikan</a>
-                        <a href="#publications" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Publikasi</a>
-                        <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">Kontak</a>
-                    </div>
-                </div>
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 focus:outline-none">
-                        <i class="ri-menu-line text-2xl"></i>
-                    </button>
-                </div>
+                <button type="button" onclick="toggleMenu()" class="md:hidden p-2 rounded-lg text-slate-500 hover:text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+                    <i class="ri-menu-3-line text-xl" id="menu-icon"></i>
+                </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white border-b" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Tentang</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Pengalaman</a>
-                <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Pendidikan</a>
-                <a href="#publications" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Publikasi</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 font-bold hover:bg-slate-50">Kontak</a>
+        <div class="md:hidden hidden border-t border-slate-100/50" id="mobile-menu">
+            <div class="px-6 py-4 space-y-1 bg-white/95 backdrop-blur-xl">
+                <a href="#about" onclick="toggleMenu()" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-colors">Tentang</a>
+                <a href="#experience" onclick="toggleMenu()" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-colors">Pengalaman</a>
+                <a href="#education" onclick="toggleMenu()" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-colors">Pendidikan</a>
+                <a href="#publications" onclick="toggleMenu()" class="block px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-colors">Publikasi</a>
+                <div class="pt-2">
+                    <a href="#contact" onclick="toggleMenu()" class="block px-4 py-3 rounded-lg text-sm font-semibold text-white bg-primary-600 text-center hover:bg-primary-700 transition-colors">Kontak</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 bg-gradient-to-br from-slate-50 to-blue-50/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-            <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold tracking-wide uppercase mb-6">
-                Data Scientist & Enterprise Architect
-            </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                Krisostomus Nova <span class="text-blue-600">Rahmanto</span>
-            </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600">
-                CEO & Co-founder PT Sadasa Akademi Indonesia. Berdedikasi untuk menjembatani kesenjangan talenta digital dan menyediakan solusi data strategis bagi sektor pemerintah dan swasta.
-            </p>
-            
-            <div class="mt-10 flex justify-center gap-4">
-                <a href="#contact" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 shadow-lg hover:shadow-xl transition-all">
-                    Hubungi Saya
-                </a>
-                <a href="https://dto.kemkes.go.id/Digital-Transformation-Strategy-2024.pdf" target="_blank" class="px-8 py-3 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 md:py-4 md:text-lg md:px-10 shadow-sm hover:shadow-md transition-all flex items-center gap-2">
-                    <i class="ri-file-text-line"></i> Lihat Portofolio
-                </a>
-            </div>
+    <section class="min-h-[100vh] flex items-center hero-gradient relative overflow-hidden">
+        <!-- Decorative blurs -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary-200/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-accent-200/15 rounded-full blur-3xl"></div>
 
-            <div class="mt-12 flex justify-center space-x-6 text-slate-400">
-                <a href="mailto:vista.indonesia@gmail.com" class="hover:text-blue-600 transition-colors"><i class="ri-mail-line text-2xl"></i></a>
-                <a href="tel:+6285643877967" class="hover:text-blue-600 transition-colors"><i class="ri-phone-line text-2xl"></i></a>
-                <a href="#" class="hover:text-blue-600 transition-colors"><i class="ri-linkedin-box-line text-2xl"></i></a>
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 w-full pt-24 pb-20">
+            <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-3 order-2 lg:order-1">
+                    <div class="fade-up">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 border border-primary-100 mb-8">
+                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            <span class="text-primary-700 text-xs font-semibold tracking-wide uppercase section-label">Data Scientist &amp; Enterprise Architect</span>
+                        </div>
+                    </div>
+                    <h1 class="fade-up fade-up-delay-1">
+                        <span class="block text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">Krisostomus</span>
+                        <span class="block text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mt-1">
+                            <span class="text-slate-900">Nova </span><span class="bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">Rahmanto</span>
+                        </span>
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl text-slate-500 leading-relaxed max-w-xl fade-up fade-up-delay-2">
+                        CEO &amp; Co-founder PT Sadasa Akademi Indonesia. Menjembatani kesenjangan talenta digital melalui solusi data strategis bagi sektor pemerintah dan swasta.
+                    </p>
+
+                    <div class="mt-10 flex flex-col sm:flex-row gap-4 fade-up fade-up-delay-3">
+                        <a href="#contact" class="group inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-white bg-primary-600 rounded-xl hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/20 hover:shadow-xl hover:shadow-primary-600/30 hover:-translate-y-0.5">
+                            Hubungi Saya
+                            <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="https://dto.kemkes.go.id/Digital-Transformation-Strategy-2024.pdf" target="_blank" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all hover:shadow-md hover:-translate-y-0.5">
+                            <i class="ri-file-text-line"></i>
+                            Lihat Portofolio
+                        </a>
+                    </div>
+
+                    <div class="mt-12 flex items-center gap-5 fade-up fade-up-delay-3">
+                        <a href="mailto:vista.indonesia@gmail.com" class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary-50 hover:text-primary-600 transition-all" title="Email">
+                            <i class="ri-mail-line text-lg"></i>
+                        </a>
+                        <a href="tel:+6285643877967" class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary-50 hover:text-primary-600 transition-all" title="Telepon">
+                            <i class="ri-phone-line text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-primary-50 hover:text-primary-600 transition-all" title="LinkedIn">
+                            <i class="ri-linkedin-box-line text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center fade-up">
+                    <div class="profile-frame w-64 h-64 md:w-80 md:h-80 lg:w-full lg:h-auto lg:aspect-square max-w-[360px]">
+                        <div class="w-full h-full rounded-2xl overflow-hidden bg-slate-100 shadow-2xl">
+                            <img src="foto-kristo.jpeg" alt="Krisostomus Nova Rahmanto" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                <div class="mb-10 lg:mb-0 fade-in">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-100 aspect-[4/3] flex items-center justify-center">
-                        <!-- Placeholder for Image -->
-                        <div class="text-center p-8">
-                            <i class="ri-user-star-line text-6xl text-slate-300 mb-4"></i>
-                            <p class="text-slate-400 font-medium">Foto Profil</p>
-                        </div>
+    <section id="about" class="py-24 lg:py-32 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+                <!-- Left: Bio -->
+                <div class="fade-up">
+                    <span class="text-xs font-bold text-primary-600 tracking-widest uppercase section-label">Tentang Saya</span>
+                    <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Membangun masa depan<br class="hidden md:block"> berbasis data
+                    </h2>
+                    <div class="mt-8 space-y-5">
+                        <p class="text-base text-slate-600 leading-relaxed">
+                            Saya adalah profesional di bidang <strong class="text-slate-800">Data Science</strong> dan <strong class="text-slate-800">Arsitektur Enterprise</strong> dengan pengalaman luas mengelola proyek strategis nasional. Saat ini menjabat sebagai <strong class="text-slate-800">CEO &amp; Co-founder</strong> di PT Sadasa Akademi Indonesia, dengan misi membuat ilmu data dapat diakses oleh semua orang.
+                        </p>
+                        <p class="text-base text-slate-600 leading-relaxed">
+                            Rekam jejak saya mencakup perancangan arsitektur data untuk Kementerian Kesehatan, Dewan Energi Nasional, dan BUMN Farmasi menggunakan metodologi <strong class="text-slate-800">TOGAF</strong>. Aktif sebagai pembicara dan pelatih dalam seminar nasional mengenai Big Data dan Transformasi Digital.
+                        </p>
                     </div>
                 </div>
-                <div class="fade-in">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Tentang Saya</h2>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        Saya adalah seorang profesional di bidang Data Science dan Arsitektur Enterprise dengan pengalaman luas dalam mengelola proyek strategis nasional. Saat ini menjabat sebagai <strong>Chief Executive Officer & Co-founder</strong> di PT Sadasa Akademi Indonesia, di mana misi saya adalah membuat ilmu data dapat diakses oleh semua orang.
-                    </p>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                        Saya memiliki rekam jejak yang terbukti dalam merancang arsitektur data untuk instansi pemerintah seperti Kementerian Kesehatan, Dewan Energi Nasional, dan BUMN Farmasi menggunakan metodologi TOGAF. Saya juga aktif sebagai pembicara dan pelatih dalam berbagai seminar nasional mengenai Big Data dan Transformasi Digital.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
-                            <h3 class="font-bold text-blue-600 text-xl">8+</h3>
-                            <p class="text-sm text-slate-500">Tahun Pengalaman</p>
+
+                <!-- Right: Stats & Highlights -->
+                <div class="fade-up fade-up-delay-1">
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="p-6 bg-gradient-to-br from-primary-50 to-white rounded-2xl border border-primary-100/50">
+                            <h3 class="stat-number text-4xl font-extrabold">8+</h3>
+                            <p class="mt-2 text-sm font-medium text-slate-500">Tahun Pengalaman</p>
                         </div>
-                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
-                            <h3 class="font-bold text-blue-600 text-xl">20+</h3>
-                            <p class="text-sm text-slate-500">Proyek Strategis</p>
+                        <div class="p-6 bg-gradient-to-br from-accent-50 to-white rounded-2xl border border-accent-100/50">
+                            <h3 class="text-4xl font-extrabold text-accent-600">20+</h3>
+                            <p class="mt-2 text-sm font-medium text-slate-500">Proyek Strategis</p>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100">
+                            <h3 class="stat-number text-4xl font-extrabold">14</h3>
+                            <p class="mt-2 text-sm font-medium text-slate-500">Holding Company</p>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100">
+                            <h3 class="stat-number text-4xl font-extrabold">5+</h3>
+                            <p class="mt-2 text-sm font-medium text-slate-500">Seminar Nasional</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-slate-900 rounded-2xl text-white">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="ri-focus-3-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Fokus Utama</h4>
+                                <p class="mt-1 text-sm text-slate-400 leading-relaxed">Data Architecture, Enterprise Architecture (TOGAF), Big Data Analytics, Digital Transformation Strategy</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -159,93 +345,114 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl font-bold text-slate-900">Pengalaman Profesional</h2>
-                <p class="mt-4 text-slate-600">Jejak karir dalam arsitektur data dan kepemimpinan</p>
+    <section id="experience" class="py-24 lg:py-32 bg-slate-50/80 pattern-overlay">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-xs font-bold text-primary-600 tracking-widest uppercase section-label">Karir</span>
+                <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Pengalaman Profesional</h2>
+                <p class="mt-4 text-slate-500 max-w-lg mx-auto">Jejak karir dalam arsitektur data, kepemimpinan, dan transformasi digital</p>
             </div>
 
-            <div class="relative max-w-4xl mx-auto">
-                <div class="timeline-line"></div>
-                
-                <!-- Item 1 -->
-                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
-                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">2019 - Sekarang</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-2">PT Sadasa Akademi Indonesia</h3>
+            <div class="max-w-3xl mx-auto space-y-0">
+                <!-- Item 1 - Current -->
+                <div class="relative fade-up">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center pt-1">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-connector"></div>
                         </div>
-                        <div class="md:col-span-4 timeline-item relative md:pl-8">
-                            <h4 class="text-xl font-bold text-slate-800">Chief Executive Officer & Co-founder</h4>
-                            <p class="text-slate-500 text-sm mb-4">Yogyakarta, Indonesia</p>
-                            <p class="text-slate-600 mb-4">
-                                Bertanggung jawab atas semua aspek manajemen eksekutif, keuangan, dan operasional. Memimpin perusahaan dalam menyediakan layanan pelatihan data analytics, konsultasi, dan solusi teknologi untuk sektor pemerintah dan swasta.
-                            </p>
+                        <div class="pb-12 flex-1">
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 card-hover">
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <span class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-bold tracking-wide">2019 — Sekarang</span>
+                                    <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold">Aktif</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900">Chief Executive Officer &amp; Co-founder</h3>
+                                <p class="mt-1 text-sm font-semibold text-primary-600">PT Sadasa Akademi Indonesia</p>
+                                <p class="mt-1 text-xs text-slate-400 flex items-center gap-1"><i class="ri-map-pin-2-line"></i> Yogyakarta, Indonesia</p>
+                                <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                                    Bertanggung jawab atas semua aspek manajemen eksekutif, keuangan, dan operasional. Memimpin perusahaan dalam menyediakan layanan pelatihan data analytics, konsultasi, dan solusi teknologi untuk sektor pemerintah dan swasta.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 2 -->
-                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
-                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Mar 2022 - Sep 2022</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-2">PT Bio Farma (Persero)</h3>
+                <div class="relative fade-up">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center pt-1">
+                            <div class="timeline-dot timeline-dot-muted"></div>
+                            <div class="timeline-connector"></div>
                         </div>
-                        <div class="md:col-span-4 timeline-item relative md:pl-8">
-                            <h4 class="text-xl font-bold text-slate-800">Data Architect Project Manager</h4>
-                            <p class="text-slate-600 mb-4">
-                                Mengawasi orkestrasi tim Business Architect dan Data Architect untuk mencapai Arsitektur Data Holding BUMN Farmasi. Merancang kerangka kerja proyek menggunakan metodologi TOGAF dan melakukan wawancara dengan 14 perusahaan anggota holding.
-                            </p>
+                        <div class="pb-12 flex-1">
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 card-hover">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold tracking-wide">Mar 2022 — Sep 2022</span>
+                                <h3 class="mt-4 text-xl font-bold text-slate-900">Data Architect Project Manager</h3>
+                                <p class="mt-1 text-sm font-semibold text-primary-600">PT Bio Farma (Persero)</p>
+                                <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                                    Mengawasi orkestrasi tim Business Architect dan Data Architect untuk merancang Arsitektur Data Holding BUMN Farmasi. Menggunakan metodologi TOGAF dan melakukan wawancara dengan 14 perusahaan anggota holding.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 3 -->
-                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
-                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Apr 2022 - Agu 2022</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-2">Perumda Tirta Khatulistiwa</h3>
+                <div class="relative fade-up">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center pt-1">
+                            <div class="timeline-dot timeline-dot-muted"></div>
+                            <div class="timeline-connector"></div>
                         </div>
-                        <div class="md:col-span-4 timeline-item relative md:pl-8">
-                            <h4 class="text-xl font-bold text-slate-800">Advisor IT Master Plan</h4>
-                            <p class="text-slate-600 mb-4">
-                                Membuat kerangka kerja komprehensif untuk Masterplan divisi IT. Bekerja sama dengan AWS untuk mengimplementasikan solusi teknologi cloud dan mengoptimalkan infrastruktur IT.
-                            </p>
+                        <div class="pb-12 flex-1">
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 card-hover">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold tracking-wide">Apr 2022 — Agu 2022</span>
+                                <h3 class="mt-4 text-xl font-bold text-slate-900">Advisor IT Master Plan</h3>
+                                <p class="mt-1 text-sm font-semibold text-primary-600">Perumda Tirta Khatulistiwa</p>
+                                <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                                    Membuat kerangka kerja komprehensif untuk Masterplan divisi IT. Bekerja sama dengan AWS untuk mengimplementasikan solusi teknologi cloud dan mengoptimalkan infrastruktur IT.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 4 -->
-                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
-                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Nov 2021 - Des 2021</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-2">Kementerian Kesehatan RI</h3>
+                <div class="relative fade-up">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center pt-1">
+                            <div class="timeline-dot timeline-dot-muted"></div>
+                            <div class="timeline-connector"></div>
                         </div>
-                        <div class="md:col-span-4 timeline-item relative md:pl-8">
-                            <h4 class="text-xl font-bold text-slate-800">Data Architect</h4>
-                            <p class="text-slate-600 mb-4">
-                                Mengembangkan Arsitektur Data yang robust menggunakan Framework TOGAF. Berkolaborasi dengan UNDP dan USAID untuk menciptakan ekosistem data yang scalable dan aman.
-                            </p>
+                        <div class="pb-12 flex-1">
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 card-hover">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold tracking-wide">Nov 2021 — Des 2021</span>
+                                <h3 class="mt-4 text-xl font-bold text-slate-900">Data Architect</h3>
+                                <p class="mt-1 text-sm font-semibold text-primary-600">Kementerian Kesehatan RI</p>
+                                <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                                    Mengembangkan Arsitektur Data yang robust menggunakan Framework TOGAF. Berkolaborasi dengan UNDP dan USAID untuk menciptakan ekosistem data yang scalable dan aman.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 5 -->
-                <div class="relative pl-8 md:pl-0 mb-12 fade-in">
-                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                        <div class="md:col-span-1 text-left md:text-right mb-2 md:mb-0">
-                            <span class="inline-block px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-xs font-semibold">Nov 2021 - Jul 2022</span>
-                            <h3 class="text-lg font-bold text-slate-900 mt-2">Dewan Energi Nasional (SINAR)</h3>
+                <div class="relative fade-up">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center pt-1">
+                            <div class="timeline-dot timeline-dot-muted"></div>
                         </div>
-                        <div class="md:col-span-4 timeline-item relative md:pl-8">
-                            <h4 class="text-xl font-bold text-slate-800">Data Model Designer</h4>
-                            <p class="text-slate-600 mb-4">
-                                Merancang model data energi Indonesia yang rumit dan Entity Relationship Diagram untuk sistem informasi SPEND.
-                            </p>
+                        <div class="pb-4 flex-1">
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 card-hover">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold tracking-wide">Nov 2021 — Jul 2022</span>
+                                <h3 class="mt-4 text-xl font-bold text-slate-900">Data Model Designer</h3>
+                                <p class="mt-1 text-sm font-semibold text-primary-600">Dewan Energi Nasional (SINAR)</p>
+                                <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                                    Merancang model data energi Indonesia yang rumit dan Entity Relationship Diagram untuk sistem informasi SPEND.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,47 +461,95 @@
     </section>
 
     <!-- Education & Certificates -->
-    <section id="education" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12">
+    <section id="education" class="py-24 lg:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-xs font-bold text-primary-600 tracking-widest uppercase section-label">Latar Belakang</span>
+                <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Pendidikan &amp; Sertifikasi</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
                 <!-- Education -->
-                <div class="fade-in">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
-                        <i class="ri-graduation-cap-line text-blue-600"></i> Pendidikan
-                    </h2>
-                    <div class="space-y-8">
-                        <div class="border-l-4 border-blue-600 pl-6">
-                            <h3 class="text-xl font-bold text-slate-900">Master of Computer Science (Data Science)</h3>
-                            <p class="text-blue-600 font-medium">EURECOM, Perancis</p>
-                            <p class="text-slate-500 text-sm">Sep 2024 - Jun 2026</p>
-                            <p class="text-slate-600 mt-2 text-sm">Beasiswa LPDP PK-237</p>
+                <div class="fade-up">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center">
+                            <i class="ri-graduation-cap-line text-primary-600 text-lg"></i>
                         </div>
-                        <div class="border-l-4 border-slate-300 pl-6">
-                            <h3 class="text-xl font-bold text-slate-900">S.Kom. Computer Science (Honours)</h3>
-                            <p class="text-slate-700 font-medium">Universitas Gadjah Mada</p>
-                            <p class="text-slate-500 text-sm">Sep 2013 - Des 2017</p>
-                            <p class="text-slate-600 mt-2 text-sm">GPA: 3.87/4.0. Thesis: "Data Preservation Process in Big Data Environment"</p>
+                        <h3 class="text-lg font-bold text-slate-900">Pendidikan Formal</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="relative bg-gradient-to-br from-primary-50/50 to-white p-6 rounded-2xl border border-primary-100/50 card-hover">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary-600/20">
+                                    <span class="text-white text-lg font-bold">M</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-900 leading-snug">Master of Computer Science</h4>
+                                    <p class="text-sm font-medium text-primary-600 mt-0.5">EURECOM, Perancis</p>
+                                    <p class="text-xs text-slate-400 mt-1 flex items-center gap-1"><i class="ri-calendar-line"></i> Sep 2024 — Jun 2026</p>
+                                    <div class="mt-3 flex flex-wrap gap-2">
+                                        <span class="px-2.5 py-1 bg-primary-100 text-primary-700 rounded-md text-xs font-semibold">Data Science</span>
+                                        <span class="px-2.5 py-1 bg-amber-50 text-amber-700 rounded-md text-xs font-semibold">Beasiswa LPDP PK-237</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-slate-800/20">
+                                    <span class="text-white text-lg font-bold">S</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-900 leading-snug">S.Kom. Computer Science</h4>
+                                    <p class="text-sm font-medium text-slate-600 mt-0.5">Universitas Gadjah Mada</p>
+                                    <p class="text-xs text-slate-400 mt-1 flex items-center gap-1"><i class="ri-calendar-line"></i> Sep 2013 — Des 2017</p>
+                                    <div class="mt-3 flex flex-wrap gap-2">
+                                        <span class="px-2.5 py-1 bg-green-50 text-green-700 rounded-md text-xs font-semibold">GPA: 3.87/4.0</span>
+                                        <span class="px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-semibold">Honours</span>
+                                    </div>
+                                    <p class="mt-3 text-xs text-slate-500 italic">"Data Preservation Process in Big Data Environment"</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Certificates -->
-                <div class="fade-in">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
-                        <i class="ri-certificate-line text-blue-600"></i> Sertifikasi
-                    </h2>
-                    <div class="grid gap-4">
-                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
-                            <h4 class="font-bold text-slate-800">Big Data Scientist</h4>
-                            <p class="text-sm text-slate-600">BNSP (2021)</p>
+                <div class="fade-up fade-up-delay-1">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 bg-accent-100 rounded-xl flex items-center justify-center">
+                            <i class="ri-award-line text-accent-600 text-lg"></i>
                         </div>
-                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
-                            <h4 class="font-bold text-slate-800">Junior Data Scientist</h4>
-                            <p class="text-sm text-slate-600">BNSP (2021)</p>
+                        <h3 class="text-lg font-bold text-slate-900">Sertifikasi Profesional</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="group bg-white p-5 rounded-2xl border border-slate-200 card-hover flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                                <i class="ri-medal-2-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Big Data Scientist</h4>
+                                <p class="text-sm text-slate-500">BNSP &middot; 2021</p>
+                            </div>
                         </div>
-                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
-                            <h4 class="font-bold text-slate-800">Workplace Assessment (IT Skills)</h4>
-                            <p class="text-sm text-slate-600">BNSP (2019)</p>
+                        <div class="group bg-white p-5 rounded-2xl border border-slate-200 card-hover flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+                                <i class="ri-bar-chart-box-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Junior Data Scientist</h4>
+                                <p class="text-sm text-slate-500">BNSP &middot; 2021</p>
+                            </div>
+                        </div>
+                        <div class="group bg-white p-5 rounded-2xl border border-slate-200 card-hover flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                                <i class="ri-shield-check-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Workplace Assessment (IT Skills)</h4>
+                                <p class="text-sm text-slate-500">BNSP &middot; 2019</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -303,138 +558,252 @@
     </section>
 
     <!-- Publications & Talks -->
-    <section id="publications" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl font-bold">Publikasi & Presentasi</h2>
-                <p class="mt-4 text-slate-400">Kontribusi pemikiran dalam konferensi dan seminar nasional</p>
+    <section id="publications" class="py-24 lg:py-32 bg-slate-950 text-white relative overflow-hidden">
+        <!-- Decorative -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-accent-600/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-xs font-bold text-primary-400 tracking-widest uppercase section-label">Kontribusi</span>
+                <h2 class="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight">Publikasi &amp; Presentasi</h2>
+                <p class="mt-4 text-slate-400 max-w-lg mx-auto">Kontribusi pemikiran dalam konferensi dan seminar nasional</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-slate-800 p-6 rounded-xl fade-in">
-                    <h3 class="text-xl font-bold text-blue-400 mb-2">Paper Konferensi</h3>
-                    <ul class="space-y-4 text-slate-300 text-sm">
-                        <li>
-                            <strong>"Data Preservation Process in Big Data Environment..."</strong><br>
-                            ICST 2018. <a href="https://ieeexplore.ieee.org/document/8528669" class="text-blue-400 hover:underline" target="_blank">DOI Link</a>
-                        </li>
-                        <li>
-                            <strong>"Development of the Health Information Analytics Dashboard..."</strong><br>
-                            ISMoHIM 2020.
-                        </li>
-                    </ul>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Papers -->
+                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 fade-up">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-primary-600/20 rounded-xl flex items-center justify-center">
+                            <i class="ri-file-paper-2-line text-primary-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Paper Konferensi</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="group p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5">
+                            <p class="text-sm font-semibold text-slate-200 leading-relaxed">"Data Preservation Process in Big Data Environment..."</p>
+                            <div class="mt-3 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">ICST 2018</span>
+                                <a href="https://ieeexplore.ieee.org/document/8528669" class="inline-flex items-center gap-1 text-xs font-semibold text-primary-400 hover:text-primary-300 transition-colors" target="_blank">
+                                    <i class="ri-external-link-line"></i> DOI Link
+                                </a>
+                            </div>
+                        </div>
+                        <div class="group p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5">
+                            <p class="text-sm font-semibold text-slate-200 leading-relaxed">"Development of the Health Information Analytics Dashboard..."</p>
+                            <div class="mt-3">
+                                <span class="text-xs text-slate-400">ISMoHIM 2020</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-slate-800 p-6 rounded-xl fade-in">
-                    <h3 class="text-xl font-bold text-blue-400 mb-2">Undangan Seminar & Webinar</h3>
-                    <ul class="space-y-3 text-slate-300 text-sm">
-                        <li><i class="ri-mic-line mr-2"></i> "Becoming A Successful Young Enterpreneur" - IPB (2020)</li>
-                        <li><i class="ri-mic-line mr-2"></i> "Big Data Analytics for Covid-19 Response" - UKSW (2020)</li>
-                        <li><i class="ri-mic-line mr-2"></i> "Data Science Fundamentals" - IndigoSpace (2021)</li>
-                        <li><i class="ri-mic-line mr-2"></i> "CyberTalk Ilmu Data" - PANDI (2021)</li>
-                        <li><i class="ri-mic-line mr-2"></i> "Mengenal penerapan data arsitektur..." - UGM (2022)</li>
-                    </ul>
+                <!-- Talks -->
+                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 fade-up fade-up-delay-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-accent-600/20 rounded-xl flex items-center justify-center">
+                            <i class="ri-presentation-line text-accent-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Undangan Seminar</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ri-mic-line text-sm text-primary-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-200">"Becoming A Successful Young Enterpreneur"</p>
+                                <p class="text-xs text-slate-500 mt-0.5">IPB &middot; 2020</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ri-mic-line text-sm text-primary-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-200">"Big Data Analytics for Covid-19 Response"</p>
+                                <p class="text-xs text-slate-500 mt-0.5">UKSW &middot; 2020</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ri-mic-line text-sm text-primary-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-200">"Data Science Fundamentals"</p>
+                                <p class="text-xs text-slate-500 mt-0.5">IndigoSpace &middot; 2021</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ri-mic-line text-sm text-primary-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-200">"CyberTalk Ilmu Data"</p>
+                                <p class="text-xs text-slate-500 mt-0.5">PANDI &middot; 2021</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                            <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="ri-mic-line text-sm text-primary-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-200">"Mengenal penerapan data arsitektur..."</p>
+                                <p class="text-xs text-slate-500 mt-0.5">UGM &middot; 2022</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Community Service -->
-    <section class="py-20 bg-blue-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-slate-900 mb-10 text-center fade-in">Pengabdian Masyarakat</h2>
+    <section class="py-24 lg:py-32 bg-slate-50/80 pattern-overlay">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-xs font-bold text-primary-600 tracking-widest uppercase section-label">Sosial</span>
+                <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Pengabdian Masyarakat</h2>
+            </div>
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
-                    <h3 class="font-bold text-lg text-slate-800 mb-2">KAGAMA</h3>
-                    <p class="text-sm text-slate-600 mb-2">Bidang 2 Pengurus Pusat (Pusat Data)</p>
-                    <p class="text-sm text-slate-500">Mengelola inisiatif manajemen data alumni dan mengembangkan sistem terpusat untuk records alumni UGM.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover fade-up">
+                    <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-5">
+                        <i class="ri-database-2-line text-primary-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">KAGAMA</h3>
+                    <p class="text-xs font-semibold text-primary-600 mb-3">Bidang 2 Pengurus Pusat (Pusat Data)</p>
+                    <p class="text-sm text-slate-500 leading-relaxed">Mengelola inisiatif manajemen data alumni dan mengembangkan sistem terpusat untuk records alumni UGM.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
-                    <h3 class="font-bold text-lg text-slate-800 mb-2">KAMIPAGAMA</h3>
-                    <p class="text-sm text-slate-600 mb-2">Anggota Aktif</p>
-                    <p class="text-sm text-slate-500">Mendorong inisiatif pengembangan bisnis dan menjembatani hubungan antara mahasiswa, alumni, dan universitas.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover fade-up fade-up-delay-1">
+                    <div class="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center mb-5">
+                        <i class="ri-team-line text-accent-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">KAMIPAGAMA</h3>
+                    <p class="text-xs font-semibold text-primary-600 mb-3">Anggota Aktif</p>
+                    <p class="text-sm text-slate-500 leading-relaxed">Mendorong inisiatif pengembangan bisnis dan menjembatani hubungan antara mahasiswa, alumni, dan universitas.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
-                    <h3 class="font-bold text-lg text-slate-800 mb-2">ADITIF</h3>
-                    <p class="text-sm text-slate-600 mb-2">Hubungan Pemerintah</p>
-                    <p class="text-sm text-slate-500">Membangun hubungan kuat dengan entitas pemerintah untuk mendukung industri kreatif digital di Indonesia.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover fade-up fade-up-delay-2">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-5">
+                        <i class="ri-government-line text-emerald-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">ADITIF</h3>
+                    <p class="text-xs font-semibold text-primary-600 mb-3">Hubungan Pemerintah</p>
+                    <p class="text-sm text-slate-500 leading-relaxed">Membangun hubungan kuat dengan entitas pemerintah untuk mendukung industri kreatif digital di Indonesia.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-            <h2 class="text-3xl font-bold text-slate-900 mb-6">Hubungi Saya</h2>
-            <p class="text-slate-600 mb-10">
-                Tertarik untuk berkolaborasi dalam proyek Data Science atau Arsitektur Enterprise? Jangan ragu untuk menghubungi saya.
-            </p>
-            
-            <div class="grid md:grid-cols-2 gap-6 text-left">
-                <a href="mailto:vista.indonesia@gmail.com" class="flex items-center p-4 bg-slate-50 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors group">
-                    <div class="bg-white p-3 rounded-full shadow-sm mr-4 group-hover:bg-blue-100">
-                        <i class="ri-mail-send-line text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-sm text-slate-500">Email</p>
-                        <p class="font-medium">vista.indonesia@gmail.com</p>
-                    </div>
-                </a>
-                <a href="tel:+6285643877967" class="flex items-center p-4 bg-slate-50 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors group">
-                    <div class="bg-white p-3 rounded-full shadow-sm mr-4 group-hover:bg-blue-100">
-                        <i class="ri-smartphone-line text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-sm text-slate-500">Telepon / WhatsApp</p>
-                        <p class="font-medium">+62 856 4387 7967</p>
-                    </div>
-                </a>
+    <section id="contact" class="py-24 lg:py-32 bg-white relative">
+        <div class="max-w-3xl mx-auto px-6 lg:px-8">
+            <div class="text-center fade-up">
+                <span class="text-xs font-bold text-primary-600 tracking-widest uppercase section-label">Kontak</span>
+                <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Mari Berkolaborasi</h2>
+                <p class="mt-4 text-slate-500 max-w-md mx-auto">
+                    Tertarik untuk bekerja sama dalam proyek Data Science atau Arsitektur Enterprise? Saya senang mendengar dari Anda.
+                </p>
             </div>
 
-            <div class="mt-10 pt-10 border-t border-slate-100">
-                <p class="text-slate-400 text-sm">
-                    &copy; 2024 Krisostomus Nova Rahmanto. All rights reserved.
-                </p>
+            <div class="mt-12 grid sm:grid-cols-2 gap-5 fade-up fade-up-delay-1">
+                <a href="mailto:vista.indonesia@gmail.com" class="group flex items-center gap-4 p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-primary-50 hover:border-primary-200 transition-all card-hover">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center group-hover:bg-primary-100 transition-colors">
+                        <i class="ri-mail-send-line text-xl text-slate-500 group-hover:text-primary-600 transition-colors"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Email</p>
+                        <p class="mt-0.5 text-sm font-bold text-slate-800 group-hover:text-primary-700 transition-colors">vista.indonesia@gmail.com</p>
+                    </div>
+                </a>
+                <a href="tel:+6285643877967" class="group flex items-center gap-4 p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-primary-50 hover:border-primary-200 transition-all card-hover">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center group-hover:bg-primary-100 transition-colors">
+                        <i class="ri-smartphone-line text-xl text-slate-500 group-hover:text-primary-600 transition-colors"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Telepon / WhatsApp</p>
+                        <p class="mt-0.5 text-sm font-bold text-slate-800 group-hover:text-primary-700 transition-colors">+62 856 4387 7967</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-0.5">
+                    <span class="font-black text-lg tracking-tighter text-primary-500">K</span>
+                    <span class="font-light text-lg tracking-tighter text-slate-600">N</span>
+                    <span class="font-light text-lg tracking-tighter text-slate-600">R</span>
+                    <span class="text-primary-500 font-black text-lg">.</span>
+                </div>
+                <p class="text-slate-500 text-xs">
+                    &copy; 2024 Krisostomus Nova Rahmanto. All rights reserved.
+                </p>
+                <div class="flex items-center gap-3">
+                    <a href="mailto:vista.indonesia@gmail.com" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-500 hover:text-primary-400 hover:bg-white/5 transition-all">
+                        <i class="ri-mail-line text-sm"></i>
+                    </a>
+                    <a href="tel:+6285643877967" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-500 hover:text-primary-400 hover:bg-white/5 transition-all">
+                        <i class="ri-phone-line text-sm"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-500 hover:text-primary-400 hover:bg-white/5 transition-all">
+                        <i class="ri-linkedin-box-line text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Mobile Menu Toggle
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
             menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'ri-menu-3-line text-xl';
+            } else {
+                icon.className = 'ri-close-line text-xl';
+            }
         }
 
-        // Scroll Animation Observer
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        // Intersection Observer for Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        }, {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
         });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                navbar.classList.add('shadow-md');
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('shadow-md');
+                navbar.classList.remove('scrolled');
             }
+        }, { passive: true });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
     </script>
 </body>
