@@ -1,0 +1,1009 @@
+# =============================================================================
+# MASTER CV DATA — Krisostomus Nova Rahmanto
+# =============================================================================
+# This file is the SINGLE SOURCE OF TRUTH. Every CV output is generated from it
+# by build.py. Never hand-edit anything in cv/out/ — edit here and rebuild.
+#
+#   tier: 1  -> appears in the 2-page resume AND the academic CV
+#         2  -> academic CV only
+#         3  -> master only (kept for the record, not rendered)
+#   tags:    -> future targeting filters: eu-industry, id-industry, academic, exec
+#   archived: true -> kept for history, never rendered in any output
+#
+# Run `python build.py` after editing; any remaining TODO markers are reported.
+# =============================================================================
+
+meta:
+  name: Krisostomus Nova Rahmanto
+  headline:
+    en: Data Scientist & Enterprise Data Architect
+    id: Data Scientist & Arsitek Data Enterprise
+  location:
+    en: Yogyakarta, Indonesia
+    id: Yogyakarta, Indonesia
+  email: vista.indonesia@gmail.com
+  emails_alt:
+    - rahmanto@eurecom.fr
+    - kristonova@sadasa.id
+  links:
+    LinkedIn: https://www.linkedin.com/in/krisostomus-nova-rahmanto/
+    GitHub: https://github.com/kristonova
+    Google Scholar: https://scholar.google.com/citations?user=7rBNBX4AAAAJ&hl=en
+  # If you later apply in France, add a work-authorisation line here, e.g.:
+  # work_authorisation: {en: "APS holder", id: "Pemegang APS"}
+
+summary:
+  en: >-
+    Data scientist and enterprise data architect with 8+ years designing national-scale
+    data systems for Indonesian ministries and state-owned enterprises, and CEO and
+    co-founder of a data analytics training and consulting firm. M.Sc. in Data Science
+    from EURECOM, France, with thesis and internship work on LLM-based support for
+    high-performance computing. Delivered TOGAF data architectures for the Ministry of
+    Health, the National Energy Council, and the state pharmaceutical holding; trained
+    and assessed 340+ civil servants, executives, and students.
+  id: >-
+    Praktisi Data Science dan Arsitek Data Enterprise dengan pengalaman lebih dari 8 tahun
+    dalam merancang ekosistem data berskala nasional untuk berbagai kementerian, lembaga,
+    dan BUMN di Indonesia. Co-founder & CEO Sadasa Academy (konsultan dan pelatihan analitika
+    data). Lulusan M.Sc. Data Science dari EURECOM Prancis, dengan fokus riset tesis dan magang
+    pada pengembangan solusi LLM untuk High-Performance Computing (HPC). Berpengalaman menyusun
+    arsitektur data berbasis kerangka kerja TOGAF di Kementerian Kesehatan, Dewan Energi Nasional,
+    dan Holding BUMN Farmasi (Bio Farma); serta telah melatih dan menguji kompetensi 340+ ASN,
+    eksekutif, dan mahasiswa.
+
+# -----------------------------------------------------------------------------
+education:
+  - degree:
+      en: M.Sc. in Computer Science, major in Data Science
+      id: M.Sc. Ilmu Komputer (Peminatan Data Science)
+    institution: EURECOM
+    location:
+      en: Sophia Antipolis, France
+      id: Sophia Antipolis, Prancis
+    start: 2024-09
+    end: 2026-07-29
+    tier: 1
+    tags: [eu-industry, id-industry, academic, exec]
+    details:
+      en:
+        - "Thesis: “Development of a Large Language Model (LLM) Prototype for L1 High-Performance Computing (HPC) Support” — supervised by Simone Rossi."
+        - "Coursework focus: big data, data science, and data analytics."
+        - "Funded by the LPDP Scholarship (PK-237), Indonesia Endowment Fund for Education."
+      id:
+        - "Tesis: “Development of a Large Language Model (LLM) Prototype for L1 High-Performance Computing (HPC) Support” — Pembimbing: Simone Rossi."
+        - "Fokus studi: Big Data, Data Science, dan Analitika Lanjut."
+        - "Penerima Beasiswa LPDP (PK-237), Lembaga Pengelola Dana Pendidikan, Kementerian Keuangan RI."
+    # TODO(user): add final grade / mention here if you want it shown, e.g. "Mention Bien".
+
+  - degree:
+      en: S.Kom. — Bachelor of Computer Science, with Honours
+      id: S.Kom. — Sarjana Ilmu Komputer (Cum Laude)
+    institution: Universitas Gadjah Mada
+    location:
+      en: Yogyakarta, Indonesia
+      id: Yogyakarta, Indonesia
+    start: 2013-09
+    end: 2017-12
+    tier: 1
+    tags: [eu-industry, id-industry, academic, exec]
+    details:
+      en:
+        - "GPA 3.87 / 4.00."
+        - "Thesis: “Data Preservation Process in Big Data Environment” — advised by Dr. Mardhani Riasetiawan; published at IEEE ICST 2018."
+      id:
+        - "IPK: 3,87 / 4,00 (Lulus dengan predikat Cum Laude)."
+        - "Skripsi: “Data Preservation Process in Big Data Environment” — Pembimbing: Dr. Mardhani Riasetiawan; dipublikasikan pada IEEE ICST 2018."
+
+# -----------------------------------------------------------------------------
+experience:
+  - org: EFISON Lisan Teknologi
+    role:
+      en: HPC & AI Engineer (M.Sc. Internship)
+      id: HPC & AI Engineer (Magang M.Sc.)
+    location: {en: Indonesia, id: Indonesia}
+    start: 2026-02   # TODO(user): confirm the real internship start month
+    end: 2026-07     # TODO(user): confirm the real internship end month
+    tier: 1
+    tags: [eu-industry, id-industry, academic, exec]
+    bullets:
+      en:
+        - Built a large language model (LLM) prototype for level-1 high-performance computing (HPC) user support, automating first-line responses to HPC cluster queries.
+        - Delivered the work as the EURECOM M.Sc. thesis under the supervision of Simone Rossi.
+      id:
+        - Mengembangkan prototipe Large Language Model (LLM) untuk otomatisasi dukungan teknis tingkat pertama (L1 support) bagi pengguna klaster High-Performance Computing (HPC).
+        - Riset ini dikerjakan sebagai bagian dari tesis M.Sc. di EURECOM di bawah supervisi Simone Rossi.
+    # TODO(user): add 1-2 measurable outcomes here (model used, dataset size,
+    # evaluation score, ticket-deflection rate) — recruiters weigh these heavily.
+
+  - org: PT Sadasa Akademi Indonesia (Sadasa Academy)
+    role:
+      en: Chief Executive Officer & Co-founder
+      id: Chief Executive Officer & Co-founder
+    location: {en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia"}
+    start: 2019-02
+    end: null            # null = Present
+    tier: 1
+    tags: [eu-industry, id-industry, academic, exec]
+    bullets:
+      en:
+        - Co-founded and lead a data analytics training and consulting firm; accountable for executive, financial, and operational management and for the full product development lifecycle.
+        - Built four service lines — corporate training, video learning, consulting, and a digital talent bridge — serving Indonesian ministries, state-owned enterprises, and private companies.
+        - Established the firm as a BNSP-licensed partner for national data science competency assessment.
+      id:
+        - Mendirikan dan memimpin perusahaan konsultan serta pelatihan analitika data; bertanggung jawab penuh atas arah strategis perusahaan, tata kelola operasional dan finansial, serta pengembangan portofolio produk/layanan.
+        - Mengembangkan empat pilar layanan utama—pelatihan korporasi, platform video pembelajaran mandiri, konsultasi arsitektur data, dan penyaluran talenta digital—untuk melayani kementerian, BUMN, serta korporasi swasta.
+        - Membawa perusahaan menjadi mitra dan Tempat Uji Kompetensi (TUK) berlisensi resmi BNSP untuk sertifikasi profesi data science tingkat nasional.
+    engagements:
+      - client: Kementerian Keuangan RI — Direktorat Jenderal Perbendaharaan (DJPb)
+        short: Kementerian Keuangan RI
+        role: {en: BNSP Competency Assessor, id: Asesor Kompetensi BNSP}
+        start: 2023-08
+        end: 2023-10
+        tier: 1
+        tags: [id-industry, exec]
+        bullets:
+          en:
+            - Assessed the IT competency of 183 civil servants at the Directorate of Treasury Information Systems and Technology (SITP) against SKKNI national competency standards.
+          id:
+            - Menguji dan mengases kompetensi bidang teknologi informasi bagi 183 ASN di lingkungan Direktorat Sistem Informasi dan Teknologi Perbendaharaan (SITP) berdasarkan standar SKKNI.
+
+      - client: Universitas Gadjah Mada
+        role: {en: Digital Productivity Trainer, id: Instruktur Transformasi Digital & Produktivitas}
+        start: 2023-10
+        end: 2023-10
+        tier: 2
+        tags: [id-industry, academic]
+        bullets:
+          en:
+            - Trained educational staff in agile methods, Scrum trade-offs, and ClickUp under the university's digital transformation programme, run jointly by the HR Directorate and the Digital Transformation Bureau.
+          id:
+            - Melatih tenaga kependidikan mengenai penerapan metodologi Agile, evaluasi implementasi Scrum, dan optimalisasi ClickUp pada program transformasi digital universitas (kolaborasi Direktorat SDM dan Biro Transformasi Digital).
+
+      - client: PT Adaro Indonesia
+        role: {en: "Lead Trainer — Data Science for Executives", id: "Lead Trainer — Data Science for Executives"}
+        start: 2023-09
+        end: 2023-09
+        tier: 2
+        tags: [id-industry, exec]
+        bullets:
+          en:
+            - Led an executive data science programme at the Adaro mining site in Tabalong, South Kalimantan, closing with a workshop in which managers mapped business problems to data science and AI solutions.
+          id:
+            - Memandu pelatihan data science intensif bagi jajaran manajer dan eksekutif di area tambang Adaro (Tabalong, Kalimantan Selatan), diakhiri dengan lokakarya perumusan solusi bisnis berbasis data science dan AI.
+
+      - client: Lembaga Sertifikasi Profesi (LSP) Teknologi Digital
+        short: LSP Teknologi Digital
+        role: {en: "BNSP Assessor — Associate Data Scientist scheme", id: "Asesor Kompetensi BNSP (Skema Associate Data Scientist)"}
+        start: 2023-03
+        end: 2023-04
+        tier: 2
+        tags: [id-industry, academic]
+        bullets:
+          en:
+            - Assessed ~60 candidates from universities across Makassar under the Digital Talent Scholarship programme of the Ministry of Communication and Information Technology.
+          id:
+            - Melaksanakan uji kompetensi bagi sekitar 60 peserta dari berbagai perguruan tinggi di Makassar dalam program Digital Talent Scholarship (DTS) Kementerian Komunikasi dan Informatika.
+
+      - client: PT Bio Farma (Persero)
+        short: PT Bio Farma
+        role: {en: Data Architect Project Manager, id: Project Manager & Lead Data Architect}
+        start: 2022-03
+        end: 2022-09
+        tier: 1
+        tags: [eu-industry, id-industry, exec]
+        bullets:
+          en:
+            - Led the business architect and data architect teams delivering the TOGAF data architecture for Indonesia's state-owned pharmaceutical holding.
+            - Ran requirements interviews with 14 member companies across 9 value chains, from Board of Directors down to BoD-2.
+          id:
+            - Memimpin tim Business Architect dan Data Architect dalam merumuskan arsitektur data terpadu untuk Holding BUMN Farmasi berbasis kerangka kerja TOGAF.
+            - Menyelenggarakan wawancara kebutuhan data komprehensif bersama 14 entitas anak holding pada 9 rantai nilai bisnis, mulai dari jajaran Direksi hingga level BoD-1 dan BoD-2.
+
+      - client: Perumda Air Minum Tirta Khatulistiwa (PDAM Pontianak)
+        short: PDAM Pontianak
+        role: {en: IT Master Plan Advisor, id: Konsultan Penyusun IT Master Plan}
+        start: 2022-04
+        end: 2022-08
+        tier: 1
+        tags: [eu-industry, id-industry, exec]
+        bullets:
+          en:
+            - Authored the IT division master plan across business, data, application, and technology architecture using TOGAF.
+            - Specified the target cloud infrastructure architecture in collaboration with AWS.
+          id:
+            - Menyusun dokumen IT Master Plan institusi yang mencakup arsitektur bisnis, data, aplikasi, dan teknologi informasi berlandaskan metodologi TOGAF.
+            - Merumuskan target arsitektur infrastruktur komputasi awan (cloud) bekerja sama dengan tim teknis AWS.
+
+      - client: Kementerian Kesehatan Republik Indonesia
+        short: Kementerian Kesehatan RI
+        role: {en: Data Architect, id: Lead Data Architect}
+        start: 2021-11
+        end: 2021-12
+        tier: 1
+        tags: [eu-industry, id-industry, academic, exec]
+        bullets:
+          en:
+            - Designed the ministry's TOGAF data architecture — conceptual and logical data models plus the data catalogue.
+            - Delivered with the Digital Transformation Office, UNDP, and USAID; incorporated into the national Digital Transformation Strategy 2024.
+          id:
+            - Merancang arsitektur data kementerian berbasis TOGAF, mencakup model data konseptual, model data logis, serta penyusunan katalog data terpadu.
+            - Berkolaborasi dengan Digital Transformation Office (DTO) Kemenkes, UNDP, dan USAID; dokumen arsitektur diintegrasikan ke dalam Cetak Biru Strategi Transformasi Digital Kesehatan 2024.
+        links:
+          - https://dto.kemkes.go.id/Digital-Transformation-Strategy-2024.pdf
+
+      - client: Dewan Energi Nasional Republik Indonesia (SINAR)
+        short: Dewan Energi Nasional
+        role: {en: Data Modeller, id: Data Modeller & Solution Architect}
+        start: 2021-11
+        end: 2022-07
+        tier: 1
+        tags: [eu-industry, id-industry, exec]
+        bullets:
+          en:
+            - Designed Indonesia's national energy data model and entity-relationship diagram for SPEND (Sistem Pemantauan Energi Nasional dan Daerah).
+            - Delivered within the SINAR consortium of USAID, the National Energy Council, and PT WeSolve Solusi Indonesia.
+          id:
+            - Merancang model data energi nasional dan Entity Relationship Diagram (ERD) untuk platform SPEND (Sistem Pemantauan Energi Nasional dan Daerah).
+            - Penugasan di bawah program konsorsium SINAR bersama USAID, Sekretariat Jenderal Dewan Energi Nasional, dan PT WeSolve Solusi Indonesia.
+
+      - client: Badan Siber dan Sandi Negara (BSSN)
+        role: {en: Project Manager, id: Project Manager}
+        start: 2021-07
+        end: 2021-10
+        tier: 2
+        tags: [id-industry, exec]
+        bullets:
+          en:
+            - Managed development of an information-protection application for the digital economy sector against the ISO/IEC 27001 framework.
+            - Produced the national guidebook “Panduan Penilaian Risiko Keamanan Informasi”, delivered with BSSN's Digital Economy Protection Directorate and ADITIF.
+          id:
+            - Mengelola proyek pengembangan aplikasi manajemen proteksi informasi sektor ekonomi digital berlandaskan kerangka kerja ISO/IEC 27001.
+            - Menyusun dan menerbitkan buku pedoman nasional “Panduan Penilaian Risiko Keamanan Informasi” bersama Direktorat Proteksi Ekonomi Digital BSSN dan ADITIF.
+
+      - client: Dinas Komunikasi dan Informatika Provinsi DIY — Jogja Center
+        short: Diskominfo DIY
+        role: {en: Project Manager & Data Scientist, id: Project Manager & Data Scientist}
+        start: 2021-07
+        end: 2021-12
+        tier: 2
+        tags: [id-industry]
+        bullets:
+          en:
+            - Led a big-data analytics and decision-support system for the Jogja Smart Province programme, executed with the CRISP-DM framework.
+          id:
+            - Memimpin pengembangan sistem big data analytics dan Decision Support System (DSS) untuk inisiatif Jogja Smart Province dengan metodologi CRISP-DM.
+        links:
+          - http://dss.jogjaprov.go.id/
+
+      - client: Badan Meteorologi, Klimatologi, dan Geofisika (BMKG)
+        short: BMKG
+        role: {en: Trainer, id: Instruktur Pelatihan Data}
+        start: 2021-03
+        end: 2021-04
+        tier: 2
+        tags: [id-industry, academic]
+        bullets:
+          en:
+            - Trained 60 civil servants at the Climatology Deputate in data management, big data fundamentals, R, and Tableau.
+          id:
+            - Memberikan pelatihan tata kelola data, fondasi big data, pemrograman R, dan visualisasi data Tableau bagi 60 ASN di Deputi Bidang Klimatologi BMKG.
+
+      - client: RSUP Dr. Sardjito
+        role: {en: Data Management Consultant, id: Konsultan Tata Kelola Data}
+        start: 2020-09
+        end: 2020-10
+        tier: 2
+        tags: [id-industry]
+        bullets:
+          en:
+            - Facilitated focus group discussions on health data management with policy makers, data owners, and technical teams.
+            - Presented the resulting data management framework to the hospital's board of directors.
+          id:
+            - Memfasilitasi rangkaian Focus Group Discussion (FGD) terkait tata kelola data kesehatan bersama pemangku kebijakan, unit pemilik data, dan tim teknis rumah sakit.
+            - Menyusun dan memaparkan usulan kerangka manajemen data kesehatan hasil FGD di hadapan jajaran Direksi RSUP Dr. Sardjito.
+
+      - client: Badan Siber dan Sandi Negara (BSSN)
+        role: {en: Enterprise Architecture Consultant, id: Konsultan Enterprise Architecture}
+        start: 2020-08
+        end: 2020-10
+        tier: 2
+        tags: [eu-industry, id-industry]
+        bullets:
+          en:
+            - Developed the bureau's data enterprise architecture using TOGAF and catalogued its database estate.
+          id:
+            - Menyusun cetak biru Data Enterprise Architecture BSSN berbasis kerangka TOGAF serta melakukan inventarisasi dan pemetaan seluruh basis data institusi.
+
+      - client: Komisi Pemberantasan Korupsi (KPK)
+        role: {en: Data Analyst, id: Data Analyst & Policy Liaison}
+        start: 2020-06
+        end: 2020-12
+        tier: 1
+        tags: [eu-industry, id-industry, exec]
+        bullets:
+          en:
+            - Advised on using national ID numbers to improve social assistance and subsidy targeting across three provinces.
+            - Translated technical findings for governors and provincial secretaries, bridging the engineering team and policy makers.
+          id:
+            - Menyusun kajian dan rekomendasi strategis integrasi data NIK guna meningkatkan akurasi serta ketepatan sasaran bantuan sosial dan subsidi di tiga provinsi percontohan.
+            - Mempresentasikan hasil analisis data kepada Gubernur dan Sekretaris Daerah, bertindak sebagai komunikator yang menjembatani tim analis data dengan para pengambil kebijakan.
+
+      - client: Kementerian PPN / BAPPENAS
+        role: {en: Trainer, id: Instruktur Pelatihan Data}
+        start: 2020-07
+        end: 2020-09
+        tier: 2
+        tags: [id-industry, academic]
+        bullets:
+          en:
+            - Trained 40 analysts across echelons in data management, big data fundamentals, R, visualisation, machine learning, and text mining.
+          id:
+            - Menjadi instruktur pelatihan bagi 40 analis perencana lintas eselon BAPPENAS dalam tata kelola data, fondasi big data, pengolahan data R, visualisasi, machine learning, dan text mining.
+        links:
+          - https://www.youtube.com/watch?v=WWqeIQz_Q7U
+
+      - client: Dinas Komunikasi dan Informatika Provinsi DIY
+        short: Diskominfo DIY
+        role: {en: Data Scientist, id: Data Scientist}
+        start: 2020-05
+        end: 2020-12
+        tier: 2
+        tags: [id-industry]
+        bullets:
+          en:
+            - Built the executive dashboard for COVID-19 social assistance stimulus, covering aggregation, standardisation, cleansing, and visualisation in R and Tableau.
+          id:
+            - Mengembangkan dashboard eksekutif pemantauan stimulus bansos COVID-19 di DIY, mencakup standardisasi skema data, pembersihan data (cleansing), integrasi lintas sumber, serta visualisasi analitik interaktif dengan R dan Tableau.
+        links:
+          - http://dss.jogjaprov.go.id/
+
+      - client: Dinas Komunikasi dan Informatika Provinsi DIY
+        short: Diskominfo DIY
+        role: {en: Data Consultant, id: Konsultan Data}
+        start: 2020-03
+        end: 2020-05
+        tier: 2
+        tags: [id-industry]
+        bullets:
+          en:
+            - Defined the data model and data flow for the province's public COVID-19 dashboard and coordinated the data science team.
+          id:
+            - Merancang model dan alur integrasi data untuk portal peta sebaran publik COVID-19 Pemda DIY, sekaligus mengoordinasikan tim teknis data scientist.
+        links:
+          - http://corona.jogjaprov.go.id/peta
+
+      - client: Kementerian Desa, PDT, dan Transmigrasi (Pusdatin)
+        short: Kementerian Desa, PDT, dan Transmigrasi
+        role: {en: Data Consultant, id: Konsultan Data}
+        start: 2019-05
+        end: 2019-06
+        tier: 2
+        tags: [id-industry]
+        bullets:
+          en:
+            - Built a dashboard for the Indeks Desa Membangun and standardised a 400-variable data model spanning textual and spatial data.
+          id:
+            - Membangun dashboard analitik Indeks Desa Membangun (IDM) serta menstandarisasi model data yang mengintegrasikan lebih dari 400 variabel indikator spasial dan tekstual.
+
+      - client: PT WeSolve Solusi Indonesia
+        role: {en: Data Consultant, id: Konsultan Data}
+        start: 2019-03
+        end: 2020-03
+        tier: 3
+        tags: [id-industry]
+        bullets:
+          en:
+            - Advised on spatial data modelling and visualisation standards for the Ministry of Energy and Mineral Resources.
+          id:
+            - Memberikan konsultasi teknis terkait standardisasi pemodelan data spasial dan pedoman visualisasi informasi untuk Kementerian Energi dan Sumber Daya Mineral.
+
+  # --- archived: no longer active, kept for the record, never rendered ---------
+  - org: Kedata Indonesia
+    role: {en: Co-founder & Head of Data Sciences, id: Co-founder & Head of Data Sciences}
+    location: {en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia"}
+    start: 2018-01
+    end: 2020-12
+    archived: true
+    tier: 3
+    tags: [id-industry]
+    bullets:
+      en:
+        - Co-founded a startup in media analytics, data-science-based market research, and corporate data science training.
+        - Delivered training at the UGM Center for Population and Policy Studies, DBS Bank Jakarta, and the UGM FISIPOL Career Development Center.
+      id:
+        - Mendirikan startup di bidang analitika media digital, riset pasar berbasis data science, dan program pelatihan data science korporat.
+        - Menjadi instruktur pelatihan data di Pusat Studi Kependudukan dan Kebijakan (PSKK) UGM, Bank DBS Indonesia (Jakarta), dan Career Development Center FISIPOL UGM.
+
+  - org: Cekdiri.id
+    role: {en: Data Lead (volunteer), id: Koordinator Tim Data (Relawan)}
+    location: {en: Indonesia, id: Indonesia}
+    start: 2020-03
+    end: 2022-12
+    archived: true
+    tier: 3
+    tags: [id-industry]
+    bullets:
+      en:
+        - Built dashboards for nationwide health facility distribution, demographic mapping, and supply chain analysis for a non-profit health data movement.
+        - Prepared raw data by scraping and cleansing in Python.
+      id:
+        - Mengembangkan dashboard pemetaan sebaran fasilitas kesehatan nasional, analisis demografis, dan rantai pasok logistik untuk inisiatif kerelawanan tanggap darurat kesehatan.
+        - Membangun pipeline pengumpulan data otomatis (web scraping) dan pembersihan data menggunakan Python.
+
+# -----------------------------------------------------------------------------
+research:
+  - title:
+      en: "Bachelor Thesis — Data Preservation in Big Data Environments"
+      id: "Skripsi — Preservasi Data pada Lingkungan Big Data"
+    org: Universitas Gadjah Mada
+    role: {en: Principal Investigator, id: Peneliti Utama}
+    start: 2017-02
+    end: 2017-11
+    tier: 2
+    tags: [academic, eu-industry]
+    bullets:
+      en:
+        - Proposed an ISO 14721:2012 (OAIS) data preservation framework for big data environments, mapping the standard's six components onto a distributed stack.
+        - Deployed a fully distributed nine-node Hadoop cluster and integrated Apache Solr search into Hadoop MapReduce.
+        - Advised by Dr. Mardhani Riasetiawan; published at IEEE ICST 2018.
+      id:
+        - Merumuskan kerangka kerja preservasi data jangka panjang berbasis standar ISO 14721:2012 (OAIS) pada lingkungan big data, dengan memetakan enam komponen standar ke dalam arsitektur komputasi terdistribusi.
+        - Mengonfigurasi dan menguji klaster komputasi terdistribusi Hadoop (9 node) serta mengintegrasikan mesin pencarian Apache Solr ke dalam Hadoop MapReduce.
+        - Dibimbing oleh Dr. Mardhani Riasetiawan; hasil riset dipublikasikan pada konferensi internasional IEEE ICST 2018.
+
+  - title:
+      en: "Cyber Banking Fraud Research Project"
+      id: "Proyek Riset Cyber Banking Fraud"
+    org: Computer System and Networking Research Laboratory, Universitas Gadjah Mada
+    role: {en: Research Assistant, id: Asisten Peneliti}
+    start: 2016-02
+    end: 2016-10
+    tier: 2
+    tags: [academic]
+    bullets:
+      en:
+        - Proposed a Self-Organizing Map approach to banking fraud detection.
+        - Coordinated weekly team meetings and represented the project members to the principal investigator.
+        - Funded by the national flagship higher-education research grant (Penelitian Unggulan Perguruan Tinggi), Ministry of Research, Technology and Higher Education.
+      id:
+        - Mengembangkan pendekatan algoritma Self-Organizing Maps (SOM) untuk deteksi transaksi perbankan anomali dan indikasi fraud.
+        - Mengoordinasikan agenda riset berkala tim peneliti dan bertindak sebagai narahubung teknis kepada ketua peneliti.
+        - Didanai oleh skema hibah Penelitian Unggulan Perguruan Tinggi (PUPT), Kementerian Riset, Teknologi, dan Pendidikan Tinggi RI.
+
+# -----------------------------------------------------------------------------
+teaching:
+  - org: Universitas Gadjah Mada — Faculty of Mathematics and Natural Sciences
+    role: {en: "Practitioner Lecturer (Dosen Praktisi) — AI-Based Marketing and Customer Management", id: "Dosen Praktisi — Pemasaran dan Pelanggan Berbasis AI"}
+    start: 2026-08
+    end: 2027-01
+    tier: 1
+    tags: [academic, id-industry]
+    bullets:
+      en:
+        - "Teach MII263006 “Pemasaran dan Pelanggan Berbasis AI” (AI-Based Marketing and Customer) in the Bachelor of Computer Science programme, odd semester 2026/2027."
+        - "Course coordinator: Prof. Dr. Azhari, M.T."
+      id:
+        - "Mengajar mata kuliah MII263006 “Pemasaran dan Pelanggan Berbasis AI” pada Program Studi S1 Ilmu Komputer, semester gasal 2026/2027."
+        - "Dosen koordinator: Prof. Dr. Azhari, M.T."
+
+  - org: Universitas Gadjah Mada — Faculty of Dentistry (FKG)
+    role: {en: "Practitioner Lecturer (Dosen Praktisi) — Digital Dentistry and Automated Detection", id: "Dosen Praktisi — Kedokteran Gigi Digital dan Deteksi Otomatis"}
+    start: 2026-08
+    end: 2027-01
+    tier: 1
+    tags: [academic, id-industry]
+    bullets:
+      en:
+        - "Teach KGRG257202 “Kedokteran Gigi Digital dan Deteksi Otomatis” (Digital Dentistry and Automated Detection) in the dentomaxillofacial radiology specialist programme, odd semester 2026/2027."
+        - "Course coordinator: drg. Isti Rahayu Suyani, M.Biotech, Sp.RadOM(K), Ph.D."
+      id:
+        - "Mengajar mata kuliah KGRG257202 “Kedokteran Gigi Digital dan Deteksi Otomatis” pada Program Studi Pendidikan Dokter Gigi Spesialis Radiologi Kedokteran Gigi, semester gasal 2026/2027."
+        - "Dosen koordinator: drg. Isti Rahayu Suyani, M.Biotech, Sp.RadOM(K), Ph.D."
+
+  - org: Universitas Dian Nuswantoro, Semarang
+    role: {en: "Practitioner Lecturer (Praktisi Mengajar) — Enterprise Architecture", id: "Dosen Praktisi (Praktisi Mengajar) — Enterprise Architecture"}
+    start: 2024-02
+    end: 2024-06
+    tier: 2
+    tags: [academic, id-industry]
+    bullets:
+      en:
+        - "Taught enterprise architecture in the Bachelor programme under the national Praktisi Mengajar programme, even semester 2023/2024."
+        - "Course coordinator: Erika Devi Udayanti."
+      id:
+        - "Mengajar mata kuliah Enterprise Architecture pada Program Studi S1 dalam program nasional Praktisi Mengajar (Kemendikbudristek), semester genap 2023/2024."
+        - "Dosen koordinator: Erika Devi Udayanti."
+
+  - org: Universitas Bina Sarana Informatika
+    role: {en: "Practitioner Lecturer (Praktisi Mengajar) — Data Science Algorithms", id: "Dosen Praktisi (Praktisi Mengajar) — Algoritma Data Science"}
+    start: 2024-02
+    end: 2024-06
+    tier: 2
+    tags: [academic, id-industry]
+    bullets:
+      en: ["Taught the Data Science Algorithms course under the national Praktisi Mengajar programme, even semester 2023/2024."]
+      id: ["Mengampu perkuliahan Algoritma Data Science pada Program Studi S1 dalam program nasional Praktisi Mengajar (Kemendikbudristek), semester genap 2023/2024."]
+
+  - org: Universitas Dian Nuswantoro, Kediri
+    role: {en: "Practitioner Lecturer (Praktisi Mengajar) — Enterprise Architecture", id: "Dosen Praktisi (Praktisi Mengajar) — Enterprise Architecture"}
+    start: 2023-05
+    end: 2023-08
+    tier: 2
+    tags: [academic, id-industry]
+    bullets:
+      en: ["Taught enterprise architecture over a full semester under the national Praktisi Mengajar programme."]
+      id: ["Mengajar mata kuliah Enterprise Architecture selama satu semester penuh melalui program nasional Praktisi Mengajar (Kemendikbudristek)."]
+
+  - org: Universitas Pendidikan Ganesha, Bali
+    role: {en: "Practitioner Lecturer (Praktisi Mengajar) — Data Science Fundamentals", id: "Dosen Praktisi (Praktisi Mengajar) — Data Science Fundamentals"}
+    start: 2022-10
+    end: 2022-11
+    tier: 2
+    tags: [academic, id-industry]
+    bullets:
+      en: ["Taught data science fundamentals under the national Praktisi Mengajar programme."]
+      id: ["Mengajar materi dasar-dasar data science dalam program nasional Praktisi Mengajar (Kemendikbudristek)."]
+
+  - org: STMIK AKAKOM, Yogyakarta
+    role: {en: Big Data Workshop Lecturer, id: Pengajar Workshop Big Data}
+    start: 2019-03
+    end: 2020-03
+    tier: 2
+    tags: [academic]
+    bullets:
+      en:
+        - Taught a 16-student workshop on the Hadoop ecosystem — single-node and fully distributed cluster installation, HDFS, MapReduce, and YARN.
+        - Designed the curriculum and coordinated exams and grading.
+      id:
+        - Mengajar workshop intensif bagi 16 mahasiswa mengenai ekosistem Hadoop: instalasi klaster single-node dan terdistribusi, HDFS, MapReduce, hingga YARN.
+        - Merancang kurikulum pembelajaran praktik, menyusun modul ajar, serta mengoordinasikan evaluasi dan penilaian.
+
+  - org: SMA Negeri 8 Yogyakarta
+    role: {en: Informatics Olympiad Teacher, id: Pembina Tim Olimpiade Komputer}
+    start: 2013-11
+    end: 2019-03
+    tier: 2
+    tags: [academic]
+    bullets:
+      en:
+        - Prepared ~15 students per semester for the Indonesian Informatics Olympiad in discrete mathematics, C++ programming, and algorithm design and analysis.
+        - Built the curriculum to Olympiad standards and coordinated exams and grading.
+      id:
+        - Membina dan melatih ~15 siswa per semester dalam persiapan Tim Olimpiade Sains Nasional (OSN) bidang Informatika: matematika diskret, pemrograman C++, serta desain dan analisis algoritma efisien.
+        - Menyusun materi kurikulum pelatihan sesuai standar olimpiade serta memimpin evaluasi dan penilaian berkala.
+
+# -----------------------------------------------------------------------------
+publications:
+  - citation:
+      Rahmanto, K. N., & Riasetiawan, M. (2018). “Data Preservation Process in Big Data
+      Environment using Open Archival Information System.” Proceedings of the 4th
+      International Conference on Science and Technology (ICST), IEEE, pp. 1–6.
+    doi: 10.1109/ICSTC.2018.8528669
+    url: https://ieeexplore.ieee.org/document/8528669
+    tier: 1
+    tags: [academic, eu-industry, id-industry]
+
+  - citation:
+      Afifah, A., & Rahmanto, K. N. (2021). “Development of the Health Information
+      Analytics Dashboard Using Big Data Analytics.” Proceedings of the 2nd International
+      Scientific and National Member Meeting on Health Information Management (ISMoHIM) 2020.
+    url: https://publikasi.aptirmik.or.id/index.php/ismohim2020/article/view/109
+    tier: 2
+    tags: [academic]
+
+# -----------------------------------------------------------------------------
+# kind -> label is resolved in build.py, so titles are stored once only.
+talks:
+  - {date: 2026-08-21, kind: general_lecture, title: "Alumni Sharing — Graduation of the Bachelor Programme, Period IV, Academic Year 2025/2026", venue: "Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada", url: "https://www.youtube.com/live/C0M5i3qEceo", tier: 2}
+  - {date: 2026-08-13, kind: workshop, title: "Data Art Workshop 2026", venue: "Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada", tier: 2}
+  - {date: 2026-04-11, kind: seminar, title: "SINTESA — Seminar Nasional Inovasi Teknologi dan Sistem Informasi", venue: "Universitas Dian Nuswantoro, Kediri", tier: 1}
+  - {date: 2025-09-19, kind: webinar, title: "Implementing AI for Business Process — Bean to Brilliance programme for Kopi Kenangan", venue: "DDK Dharma Korporasi", tier: 1}
+  - {date: 2024-07-31, kind: guest_lecture, title: "Practitioner Lecture for Computer Science students", venue: "Faculty of Engineering and Information Technology, Universitas Jenderal Achmad Yani Yogyakarta", tier: 2}
+  - {date: 2023-10, kind: guest_lecture, title: "Data-related Project Management", venue: "Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada", tier: 2}
+  - {date: 2023-08-18, kind: webinar, title: "Menyiapkan Karir Digital: Ketrampilan Teknologis yang Dibutuhkan dan Bagaimana Menguasainya", venue: "Biduan (Bincang Digital Mingguan), Gistrav Polytechnic", tier: 3}
+  - {date: 2023-08-02, kind: general_lecture, title: "Alumnae Sharing on Professional Career — PPSMB Pascal 2023", venue: "Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada", tier: 3}
+  - {date: 2023-07-11, kind: workshop, title: "Digital Marketing Training", venue: "Dinas Koperasi dan UMKM DIY, Jogja Tourism Training Center", tier: 3}
+  - {date: 2023-05-22, kind: general_lecture, title: "Market Basket Analysis", venue: "Department of Statistics, Faculty of Mathematics and Natural Sciences, Universitas Negeri Yogyakarta", tier: 2}
+  - {date: 2023-03-21, kind: general_lecture, title: "Build Your Mind and Character in Era 4.0: Data Science Fundamentals", venue: "Dinus Open Source Community (DOSCOM), Faculty of Computer Science, Universitas Dian Nuswantoro, Semarang", tier: 3}
+  - {date: 2022-12-06, kind: workshop, title: "Strategi Akuisisi Data Geospasial Open Source", venue: "Badan Pengembangan Infrastruktur Wilayah, Kementerian PUPR", tier: 2}
+  - {date: 2022-12-03, kind: fgd, title: "Digital Ecosystem Connect (moderator)", venue: "Asosiasi Digital Kreatif (ADITIF), Yogyakarta", tier: 3}
+  - {date: 2022-10-18, kind: workshop, title: "Pengembangan Inovasi Pembelajaran Berbasis Studi Kasus dan Project Based Learning di Bidang Data Science dengan DUDI", venue: "Universitas Duta Bangsa, Surakarta", tier: 3}
+  - {date: 2022-09-07, kind: general_lecture, title: "Mengenal Penerapan Data Arsitektur untuk Data Science pada Industri", venue: "Departemen Teknik Elektro dan Informatika, Sekolah Vokasi UGM", tier: 2}
+  - {date: 2021-11-13, kind: webinar, title: "Topic Modelling with Amazon SageMaker (moderator)", venue: "AWS, Data Science Indonesia, Block71 Bandung", tier: 2}
+  - {date: 2021-10-14, kind: webinar, title: "Data Science Fundamentals", venue: "IndigoSpace Balikpapan", tier: 2}
+  - {date: 2021-08-14, kind: webinar, title: "CyberTalk Ilmu Data: dari Data, oleh Data, untuk Data", venue: "Pengelola Nama Domain Internet Indonesia (PANDI)", url: "https://www.youtube.com/watch?v=BZihn2kB53I", tier: 1}
+  - {date: 2021-06-12, kind: webinar, title: "Keahlian Analitika Data untuk Akuntan Profesional Masa Depan", venue: "Fakultas Ekonomika dan Bisnis, Universitas Gadjah Mada", url: "https://www.youtube.com/watch?v=ZrqDgTcxnNQ", tier: 2}
+  - {date: 2021-05-28, kind: webinar, title: "Mengenal Amunisi untuk Berkarir sebagai Data Scientist (eCampuz Seri 31)", venue: "PT Solusi Kampus Indonesia", url: "https://www.youtube.com/watch?v=bvqg6qBGzjI", tier: 3}
+  - {date: 2021-04-09, kind: webinar, title: "BANGKIT! Startup Kecerdasan Artifisial & Big Data untuk Industri Indonesia", venue: "Kementerian Perindustrian Republik Indonesia", url: "https://www.youtube.com/watch?v=g-_FzGhDlPE", tier: 1}
+  - {date: 2021-03-27, kind: general_lecture, title: "Building Portfolio: Tips and Tricks for Data Analysts", venue: "Kewirausahaan Sosial UGM", tier: 3}
+  - {date: 2021-02-05, kind: webinar, title: "Penerapan Artificial Intelligence dalam Menyelesaikan Berbagai Permasalahan di Era Pandemi", venue: "Keluarga Alumni FMIPA UGM (KAMIPAGAMA)", tier: 3}
+  - {date: 2020-12-01, kind: general_lecture, title: "Smart Nation Session #3 — Big Data Case Study for Smart Province: Cleansing Data Bantuan Sosial di DIY", venue: "Laboratorium Sistem Komputer dan Jaringan, FMIPA UGM", url: "https://www.youtube.com/watch?v=dY53koYh10k", tier: 2}
+  - {date: 2020-11-26, kind: webinar, title: "How to Kickstart Your Career as a Data Scientist", venue: "Glints ExpertClass", tier: 3}
+  - {date: 2020-11-11, kind: fgd, title: "Tata Kelola Data Bantuan Sosial di DIY (moderator)", venue: "Satu Data Indonesia, Kementerian PPN/BAPPENAS", tier: 2}
+  - {date: 2020-08-15, kind: webinar, title: "Becoming a Successful Young Entrepreneur: How to Build Networks and Optimise Business Strategies", venue: "Institut Pertanian Bogor", tier: 1}
+  - {date: 2020-05-05, kind: general_lecture, title: "Covid-19, Rantai Pasok Pangan, Big Data dan Digitalisasi Segala Hal", venue: "Sekolah Ilmu dan Teknologi Hayati, Institut Teknologi Bandung", url: "https://www.youtube.com/watch?v=WgHjxx2ILvI", tier: 2}
+  - {date: 2020-04-30, kind: general_lecture, title: "Big Data Analytics for Covid-19 Response", venue: "Universitas Katolik Soegijapranata, Semarang", url: "https://www.youtube.com/watch?v=ZUgLk_3nvWU", tier: 1}
+  - {date: 2019-12-04, kind: workshop, title: "Data Science for Rapid Problem Solving", venue: "Center for Population and Policy Studies UGM, PT Telkom Indonesia & Kemenpora", tier: 2}
+  - {date: 2019-11-17, kind: seminar, title: "Trend Gerakan Sosial Berbasis Digital di Tengah Masyarakat Multistrata dan Ketimpangan", venue: "Pekan Raya Kasrat, BEM Sekolah Vokasi UGM", tier: 3}
+  - {date: 2019-10-27, kind: seminar, title: "Data Analyst: Keystone on Disruption Era", venue: "Industrial Career Talkshow, Himpunan Mahasiswa Teknik Industri UGM", tier: 3}
+  - {date: 2019-10-24, kind: workshop, title: "Summer/Short Course: Data Science", venue: "Departemen Hubungan Internasional, UPN “Veteran” Yogyakarta", tier: 3}
+  - {date: 2019-05-04, kind: seminar, title: "Privacy Concern on Digital World", venue: "Seminar on Campus 2019, KMTETI Universitas Gadjah Mada", tier: 3}
+  - {date: 2019-04-24, kind: workshop, title: "Big Data Analysis: Hoax Detection", venue: "Career Development Center FISIPOL, Universitas Gadjah Mada", tier: 2}
+  - {date: 2019-04-15, kind: seminar, title: "Internet of Things at a Glance", venue: "Maroon Day 2019, HMJ Teknik Informatika STMIK AKAKOM", tier: 3}
+  - {date: 2019-03-30, kind: seminar, title: "Data Driven Business by Using Data Science", venue: "Kementerian Koperasi dan UKM Republik Indonesia", tier: 2}
+  - {date: 2019-03-04, kind: general_lecture, title: "Pendidikan di Era Big Data dan Revolusi Industri 4.0", venue: "STMIK AKAKOM Yogyakarta", tier: 3}
+  - {date: 2019-01-08, kind: seminar, title: "Innovation in the 4th Industrial Revolution", venue: "Selasa Srawung Community", tier: 3}
+  - {date: 2018-12-12, kind: workshop, title: "Social Network Analysis with R and Gephi", venue: "Center for Population and Policy Studies, Universitas Gadjah Mada", tier: 2}
+  - {date: 2018-08-08, kind: paper, title: "Data Preservation Process in Big Data Environment using Open Archival Information System", venue: "4th International Conference on Science and Technology (ICST)", tier: 1}
+
+# -----------------------------------------------------------------------------
+# All BNSP certificates are valid for 3 years. As of 2026 every one has lapsed,
+# so `expired: true` is rendered explicitly — claiming an active credential you
+# no longer hold is a real risk in background checks.
+certifications:
+  - name: {en: "Certificate of Competence in Data Science — Big Data Scientist", id: "Sertifikat Kompetensi Data Science — Big Data Scientist"}
+    issuer: Badan Nasional Sertifikasi Profesi (BNSP)
+    reg: TIK.1565.05386 2021
+    issued: 2021-09-06
+    valid_years: 3
+    expired: true
+    tier: 1
+    tags: [id-industry, exec]
+  - name: {en: "Certificate of Competence in Data Science — Junior Data Scientist", id: "Sertifikat Kompetensi Data Science — Junior Data Scientist"}
+    issuer: Badan Nasional Sertifikasi Profesi (BNSP)
+    reg: TIK.1565.04480 2021
+    issued: 2021-07-20
+    valid_years: 3
+    expired: true
+    tier: 2
+    tags: [id-industry]
+  - name: {en: "Certificate of Competence in Workplace Assessment (IT skills)", id: "Sertifikat Kompetensi Asesor Tempat Kerja (Bidang TI)"}
+    issuer: Badan Nasional Sertifikasi Profesi (BNSP)
+    reg: MET.000.005057 2019
+    issued: 2023-03-30
+    valid_years: 3
+    expired: true
+    tier: 1
+    tags: [id-industry, exec]
+    note:
+      en: Covers assessment of programming, data science, and big data competencies; first issued Oct 2019 and renewed in 2023.
+      id: Kualifikasi penguji untuk asesmen kompetensi pemrograman, data science, dan big data; pertama kali terbit Okt 2019 dan diperpanjang pada 2023.
+  - name: {en: "Certificate of Competence in Software Development — Programmer", id: "Sertifikat Kompetensi Software Development — Programmer"}
+    issuer: Badan Nasional Sertifikasi Profesi (BNSP)
+    reg: TIK.317.00341 2018
+    issued: 2018-11-09
+    valid_years: 3
+    expired: true
+    tier: 3
+    tags: [id-industry]
+
+# -----------------------------------------------------------------------------
+training:
+  - {date: 2018-12, title: "Data Science Talk and Workshop Series: Toward Academic Challenges and Industrial Demands", org: "Center of Data Science, Universitas Islam Indonesia", tier: 3}
+  - {date: 2018-10, title: "Workshop for Web Developers Administering Counter-terrorism Webpages", org: "Badan Nasional Penanggulangan Terorisme (BNPT)", tier: 3}
+  - {date: 2016-11, title: "Introduction to Hadoop", org: "Algorithm and Computing Research Laboratory, FMIPA Universitas Gadjah Mada", tier: 3}
+  - {date: 2012-12, title: "The Utilization of Online Collaboration Media for Learning", org: "SEAMOLEC", tier: 3}
+
+# -----------------------------------------------------------------------------
+community:
+  - org: Keluarga Alumni Universitas Gadjah Mada (KAGAMA)
+    role: {en: "Central Board, Division 2 — Data Centre Department", id: "Pengurus Pusat Bidang 2 — Departemen Pusat Data"}
+    location: {en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia"}
+    start: 2024-12
+    end: 2029-12
+    tier: 1
+    tags: [id-industry, exec, academic]
+    bullets:
+      en:
+        - Oversee alumni data management, keeping records accurate and integrated across faculties and regions.
+        - Lead a flagship project to build a standardised, centralised alumni data system improving accessibility, data security, and university–alumni collaboration.
+      id:
+        - Mengawal tata kelola dan integrasi data alumni UGM agar akurat dan terpadu lintas fakultas dan pengurus daerah di seluruh Indonesia.
+        - Memimpin proyek strategis pembangunan sistem database alumni terpusat dan terstandar guna meningkatkan keandalan data, keamanan informasi, serta memperkuat jejaring kolaborasi universitas–alumni.
+
+  - org: "Perhimpunan Pelajar Indonesia (PPI) Provence-Alpes-Côte d'Azur, France"
+    role: {en: "Community Development Coordinator", id: "Koordinator Pengembangan Komunitas"}
+    location: {en: "Provence-Alpes-Côte d'Azur, France", id: "Provence-Alpes-Côte d'Azur, Prancis"}
+    start: 2024-10
+    end: 2025-10
+    tier: 2
+    tags: [academic, eu-industry]
+    bullets:
+      en: ["Coordinated community development for the Indonesian Students Association (PPI) in the Provence-Alpes-Côte d'Azur region of France."]
+      id: ["Mengoordinasikan program pemberdayaan dan pengembangan komunitas bagi mahasiswa Indonesia di wilayah Provence-Alpes-Côte d'Azur, Prancis."]
+
+  - org: Keluarga Alumni FMIPA Gadjah Mada (KAMIPAGAMA)
+    role: {en: "Member — Business Development", id: "Anggota — Pengembangan Bisnis & Kemitraan"}
+    location: {en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia"}
+    start: 2022-09
+    end: 2026-09
+    tier: 2
+    tags: [id-industry]
+    bullets:
+      en: ["Drove business development initiatives and strengthened ties between students, alumni, and the faculty."]
+      id: ["Menginisiasi program pengembangan jejaring bisnis serta mempererat hubungan kolaboratif antara mahasiswa, alumni, dan fakultas."]
+
+  - org: Asosiasi Digital Kreatif (ADITIF)
+    role: {en: Government Relations, id: Hubungan Antarlembaga & Pemerintah}
+    location: {en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia"}
+    start: 2019-05
+    end: 2022-06
+    tier: 2
+    tags: [id-industry, exec]
+    bullets:
+      en: ["Built and maintained relationships with ministries, state governments, state-owned companies, and local governments to advocate for Indonesia's digital creative industry."]
+      id: ["Membangun dan memelihara komunikasi strategis dengan kementerian, pemerintah daerah, serta BUMN untuk mengadvokasi pertumbuhan ekosistem industri kreatif digital Indonesia."]
+
+  - org: Inovator 4.0 Indonesia
+    role: {en: "Member — Data Science Working Group", id: "Anggota — Kelompok Kerja Data Science"}
+    location: {en: "Jakarta, Indonesia", id: "Jakarta, Indonesia"}
+    start: 2018-09
+    end: 2020-12
+    tier: 3
+    tags: [id-industry]
+    bullets:
+      en: ["Contributed to a national association of digital innovation practitioners, including planning a data science bootcamp for young people in rural areas."]
+      id: ["Berkontribusi aktif dalam asosiasi penggiat inovasi digital nasional, termasuk merancang silabus pelatihan intensif (bootcamp) data science bagi talenta muda di daerah."]
+
+  - org: Catholic Parish of the Sacred Heart of Jesus, Pugeran
+    role: {en: "Research and Development — Data Subdivision", id: "Litbang — Subdivisi Pengolahan Data"}
+    location: {en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia"}
+    start: 2019-01
+    end: null
+    tier: 3
+    tags: []
+    bullets:
+      en: ["Run data science projects on parish activity and maintain the congregation's main database."]
+      id: ["Menjalankan analisis data statistik pastoral serta memelihara sistem basis data kependudukan umat di paroki."]
+
+  - org: Holy Cross Catholic Church, Gunung Sempu, Bantul
+    role: {en: IT Administrator, id: Koordinator Infrastruktur Jaringan & TI}
+    location: {en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia"}
+    start: 2014-01
+    end: null
+    tier: 3
+    tags: []
+    bullets:
+      en:
+        - Delivered the first Wi-Fi installation in the church area — negotiated with the parish administration and the ISP, and supervised tower, antenna, router, and cabling works.
+        - Operate the connection using MikroTik and embedded router software, including signal-range checks and first-line network troubleshooting.
+      id:
+        - Menginisiasi dan memimpin instalasi infrastruktur jaringan Wi-Fi pertama di kawasan gereja—mencakup perizinan, koordinasi teknis dengan ISP, hingga supervisi pemasangan menara, antena, perkabelan, dan konfigurasi router.
+        - Mengelola operasional jaringan menggunakan MikroTik, melakukan pemantauan jangkauan sinyal, serta menangani penanganan gangguan (troubleshooting) teknis secara berkala.
+
+  - org: Student Community Service (KKN), Universitas Gadjah Mada
+    role: {en: Team Member, id: Anggota Tim KKN-PPM}
+    location: {en: "North Sulawesi, Indonesia", id: "Sulawesi Utara, Indonesia"}
+    start: 2016-06
+    end: 2016-08
+    tier: 3
+    tags: []
+    bullets:
+      en:
+        - Designed the village website prototype and served as event photographer and Manado-language interpreter.
+        - Managed travel logistics and airfare for all thirty team members.
+      id:
+        - Merancang prototipe portal web desa, mendokumentasikan kegiatan pengabdian masyarakat, serta memfasilitasi komunikasi lapangan dengan warga setempat.
+        - Mengelola manajemen logistik operasional, transportasi, dan tiket penerbangan untuk seluruh 30 anggota tim mahasiswa.
+
+# -----------------------------------------------------------------------------
+skills:
+  - group: {en: Programming, id: Pemrograman}
+    items: [Python, R, "C++", SQL]
+    tier: 1
+  - group: {en: "Machine Learning & AI", id: "Machine Learning & AI"}
+    items: [scikit-learn, TensorFlow, spaCy, "Large Language Models (LLM)", "Self-Organizing Maps"]
+    tier: 1
+  - group: {en: "Big Data & HPC", id: "Big Data & HPC"}
+    items: ["Hadoop (HDFS, MapReduce, YARN)", Apache Spark, Apache Solr, "High-Performance Computing (HPC)"]
+    tier: 1
+  - group: {en: "Data & Enterprise Architecture", id: "Arsitektur Data & Enterprise"}
+    items: [TOGAF, "Conceptual & logical data modelling", "Entity-relationship design", "Data cataloguing"]
+    tier: 1
+  - group: {en: "Methods & Standards", id: "Metodologi & Standar"}
+    items: [CRISP-DM, "ISO/IEC 27001", "ISO 14721 (OAIS)", "SKKNI competency assessment", Agile, Scrum]
+    tier: 1
+  - group: {en: "Visualisation & Cloud", id: "Visualisasi & Cloud"}
+    items: [Tableau, CARTO, AWS]
+    tier: 1
+  - group: {en: Other, id: Lainnya}
+    items: [Git, "WordPress CMS", Bootstrap, ClickUp]
+    tier: 2
+
+# -----------------------------------------------------------------------------
+languages:
+  - name: {en: Indonesian, id: Bahasa Indonesia}
+    level: {en: Native, id: Penutur Asli}
+    tier: 1
+  - name: {en: English, id: Bahasa Inggris}
+    level: {en: "Professional working proficiency", id: "Kemampuan Kerja Profesional"}
+    detail: "IELTS Academic 6.5 — Listening 7.0 · Reading 7.5 · Writing 6.0 · Speaking 6.0"
+    tier: 1
+  - name: {en: French, id: Bahasa Prancis}
+    level: {en: "B1 (CEFR)", id: "B1 (CEFR)"}
+    detail: "TCF — compréhension orale 312 · maîtrise des structures de la langue 346 · compréhension écrite 369"
+    tier: 1
+
+# -----------------------------------------------------------------------------
+awards:
+  - name: {en: "LPDP Scholarship (PK-237)", id: "Beasiswa LPDP (PK-237)"}
+    org: {en: "Indonesia Endowment Fund for Education, Ministry of Finance", id: "Lembaga Pengelola Dana Pendidikan, Kementerian Keuangan RI"}
+    start: 2024
+    end: 2026
+    tier: 1
+    tags: [academic, eu-industry, id-industry]
+  - name: {en: "Bachelor of Computer Science with Honours", id: "Sarjana Ilmu Komputer (Predikat Cum Laude)"}
+    org: {en: Universitas Gadjah Mada, id: Universitas Gadjah Mada}
+    start: 2017
+    end: 2017
+    tier: 2
+    tags: [academic]
+  - name: {en: "Bidikmisi Scholarship", id: "Beasiswa Bidikmisi"}
+    org: {en: "Ministry of Research, Technology and Higher Education", id: "Kementerian Riset, Teknologi, dan Pendidikan Tinggi RI"}
+    start: 2013
+    end: 2017
+    tier: 2
+    tags: [academic]
+    note:
+      en: Full tuition scholarship for academically strong students from low-income families.
+      id: Beasiswa prestasi akademik penuh selama masa studi sarjana dari Pemerintah RI.
+
+# =============================================================================
+# LANDING PAGE — content that is editorial, not record.
+# =============================================================================
+# Everything above is the CV record. This block is the copy for the front page
+# at kristonova.github.io/ : positioning, practice areas, and UI labels. It
+# lives here so the site still has exactly one source file.
+#
+# Every *number* on the landing page is counted from the data above by
+# build.py — never write a figure here. The one exception is `people_trained`,
+# which is not derivable from prose bullets; update it by hand when it changes.
+# =============================================================================
+site:
+  url: https://kristonova.github.io/
+  photo: foto-kristo-portrait.jpg   # cropped from foto-kristo.jpeg; see README
+  people_trained: 340
+
+  role:
+    en: Data Scientist & Enterprise Data Architect
+    id: Data Scientist & Arsitek Data Enterprise
+
+  # The first thing a non-technical executive reads. Plain language, the
+  # problem solved — not the job title.
+  positioning:
+    en: >-
+      I design the data systems Indonesian ministries and companies run on —
+      from the architecture underneath to the decisions taken on top of it.
+    id: >-
+      Saya membantu kementerian dan korporasi di Indonesia membangun sistem data yang andal —
+      mulai dari fondasi arsitektur data hingga implementasi analitik untuk pengambilan keputusan strategis.
+
+  # Credentials as proof directly under the positioning, not as identity.
+  credentials:
+    en:
+      - M.Sc. Data Science, EURECOM France · LPDP Scholar
+      - B.Sc. Computer Science with Honours, Universitas Gadjah Mada
+      - CEO & Co-founder, Sadasa Academy · BNSP-licensed assessor
+    id:
+      - M.Sc. Data Science, EURECOM Prancis · Penerima Beasiswa LPDP
+      - S.Kom. Ilmu Komputer (Cum Laude), Universitas Gadjah Mada
+      - CEO & Co-founder Sadasa Academy · Asesor Kompetensi Berlisensi BNSP
+
+  cta_label:
+    en: Get in touch
+    id: Hubungi Saya
+  cta_body:
+    en: >-
+      Working out your organisation's data, or looking for someone fluent in
+      the business side and the technical side at once? Tell me what you are
+      trying to decide — that is usually the fastest way in.
+    id: >-
+      Sedang merapikan tata kelola data organisasi Anda, atau membutuhkan tenaga ahli yang fasih
+      menghubungkan kebutuhan bisnis dengan solusi teknis? Mari berdiskusi tentang tantangan
+      data dan arah keputusan yang ingin Anda capai.
+
+  # Four practice areas in plain language. `evidence` is institution names,
+  # so it is deliberately not translated.
+  practice:
+    - name:
+        en: Data & enterprise architecture
+        id: Arsitektur data & enterprise
+      what:
+        en: >-
+          The blueprint for an organisation's data: what data exists, who owns
+          it, how it moves between systems, and what has to be built first.
+        id: >-
+          Menyusun cetak biru arsitektur data organisasi: pemetaan entitas dan kepemilikan data,
+          perancangan alur integrasi antarsistem, serta penyusunan peta jalan (roadmap) prioritas implementasi.
+      evidence: Kementerian Kesehatan RI · PT Bio Farma (14 anggota holding) · Dewan Energi Nasional · BSSN · PDAM Pontianak
+
+    - name:
+        en: Executive analytics & dashboards
+        id: Analitik & dashboard eksekutif
+      what:
+        en: >-
+          Turning scattered data into one screen a leadership team can actually
+          decide from — and explaining the finding to the people who sign off
+          on it.
+        id: >-
+          Mengintegrasikan data yang terfragmentasi menjadi dashboard eksekutif yang aplikatif,
+          serta menerjemahkan wawasan teknis menjadi dasar pertimbangan konkret bagi pimpinan dan pengambil kebijakan.
+      evidence: Komisi Pemberantasan Korupsi (KPK) · Diskominfo DIY · RSUP Dr. Sardjito · Kementerian Desa PDT dan Transmigrasi
+
+    - name:
+        en: Training & competency assessment
+        id: Pelatihan & asesmen kompetensi
+      what:
+        en: >-
+          Building data capability inside a team — from technical staff to the
+          board — and certifying it against Indonesia's SKKNI standards under a
+          BNSP licence.
+        id: >-
+          Meningkatkan kapabilitas data tim internal—mulai dari staf teknis hingga jajaran pimpinan—serta
+          menyelenggarakan uji kompetensi berbasis SKKNI melalui skema sertifikasi resmi BNSP.
+      evidence: Kementerian Keuangan RI (183 ASN) · BAPPENAS · BMKG · PT Adaro Indonesia · LSP Teknologi Digital
+
+    - name:
+        en: AI & language models in operations
+        id: AI & model bahasa untuk operasional
+      what:
+        en: >-
+          Putting large language models to work on the repetitive part of a
+          job, so the team spends its time on the part that genuinely needs a
+          person.
+        id: >-
+          Menerapkan teknologi Large Language Model (LLM) untuk mengotomasi alur kerja operasional
+          yang repetitif, sehingga tim dapat lebih berfokus pada pekerjaan strategis bernilai tinggi.
+      evidence: EFISON Lisan Teknologi (dukungan HPC L1) · Kopi Kenangan · Universitas Gadjah Mada
+
+  # UI labels for the landing page.
+  t:
+    clients:
+      en: Trusted by
+      id: Mitra & Klien
+    practice:
+      en: What I do
+      id: Bidang Keahlian & Layanan
+    work:
+      en: Selected work
+      id: Pengalaman Proyek Terpilih
+    work_more:
+      en: Full engagement history →
+      id: Lihat seluruh riwayat proyek & portofolio →
+    research:
+      en: Research & publications
+      id: Riset & Publikasi Ilmiah
+    scholar:
+      en: All publications on Google Scholar →
+      id: Lihat seluruh publikasi di Google Scholar →
+    speaking:
+      en: Teaching & speaking
+      id: Aktivitas Mengajar & Pembicara
+    talks_more:
+      en: All invited talks →
+      id: Lihat seluruh riwayat seminar & kuliah tamu →
+    contact:
+      en: Contact
+      id: Kontak
+    phone:
+      en: Phone / WhatsApp
+      id: Telepon / WhatsApp
+    location:
+      en: Based in
+      id: Domisili
+    open:
+      en: Open profile →
+      id: Buka tautan →
+    figures:
+      - key: talks
+        label:
+          en: invited talks, lectures and seminars
+          id: undangan seminar, kuliah umum, dan webinar
+      - key: teaching
+        label:
+          en: practitioner-lecturer appointments
+          id: mata kuliah diampu sebagai dosen praktisi
+      - key: people
+        label:
+          en: civil servants, executives and students trained or assessed
+          id: ASN, eksekutif, dan mahasiswa yang telah dilatih/diases

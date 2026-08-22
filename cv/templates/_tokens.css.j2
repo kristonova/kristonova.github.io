@@ -1,0 +1,234 @@
+/* =========================================================================
+   Design tokens and shared primitives.
+   Included by index.html.j2 (landing) and cv.html.j2 (full CV) so the two
+   pages read as one site. Contains no Jinja variables — keep it that way,
+   or autoescaping becomes a concern.
+   ========================================================================= */
+
+:root {
+  --ground:      #ffffff;
+  --surface:     #f3f6f9;
+  --ink:         #16202e;
+  --ink-soft:    #4a5769;
+  --ink-faint:   #8a97a8;
+  --rule:        #dde3eb;
+  --rule-strong: #b9c4d1;
+  --accent:      #1f4e79;
+  --accent-soft: #e6eef6;
+
+  --serif: Spectral, Georgia, 'Times New Roman', serif;
+  --sans:  'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:  'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --gutter: 8.5rem;
+  --measure: 68ch;
+
+  /* One spacing scale, used everywhere. Nothing is spaced off-scale. */
+  --s1: 0.5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2rem;
+  --s5: 3rem;
+  --s6: 4.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:      #10151c;
+    --surface:     #171e27;
+    --ink:         #e6ebf2;
+    --ink-soft:    #a6b2c2;
+    --ink-faint:   #6e7c8e;
+    --rule:        #26303c;
+    --rule-strong: #3a4757;
+    --accent:      #7fb3e3;
+    --accent-soft: #1b2a3a;
+  }
+}
+:root[data-theme="dark"] {
+  --ground:      #10151c;
+  --surface:     #171e27;
+  --ink:         #e6ebf2;
+  --ink-soft:    #a6b2c2;
+  --ink-faint:   #6e7c8e;
+  --rule:        #26303c;
+  --rule-strong: #3a4757;
+  --accent:      #7fb3e3;
+  --accent-soft: #1b2a3a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--s4) var(--s3) var(--s6);
+}
+
+/* ---------- toolbar ------------------------------------------------------ */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s1);
+  padding: 0.75rem 0;
+  background: color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: var(--s5);
+}
+.toolbar .spacer { flex: 1 1 auto; }
+
+.seg {
+  display: flex;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.seg button {
+  font: 500 11px/1 var(--sans);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.85rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.seg button + button { border-left: 1px solid var(--rule); }
+.seg button:hover { background: var(--surface); color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--ground); }
+.seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Single icon control, same visual weight as .seg */
+.iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  padding: 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.iconbtn:hover { background: var(--surface); color: var(--ink); }
+.iconbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.iconbtn svg { width: 15px; height: 15px; }
+/* Show the icon for the mode you would switch *to*. */
+.iconbtn .i-dark { display: inline; }
+.iconbtn .i-light { display: none; }
+:root[data-theme="dark"] .iconbtn .i-dark { display: none; }
+:root[data-theme="dark"] .iconbtn .i-light { display: inline; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .iconbtn .i-dark { display: none; }
+  :root:not([data-theme="light"]) .iconbtn .i-light { display: inline; }
+}
+
+.toollink {
+  font: 500 11px/1 var(--sans);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.5rem 0.15rem;
+  border-bottom: 1px solid transparent;
+}
+.toollink:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.toollink:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- language switching ------------------------------------------ */
+/* The page ships both languages; CSS decides which one is in the flow. */
+.doc { display: none; }
+.doc[data-doc-lang="en"] { display: block; }
+:root[data-lang="id"] .doc[data-doc-lang="en"] { display: none; }
+:root[data-lang="id"] .doc[data-doc-lang="id"] { display: block; }
+/* Small bilingual fragments outside the .doc articles (toolbar, footer). */
+[data-t] { display: none; }
+[data-t="en"] { display: inline; }
+:root[data-lang="id"] [data-t="en"] { display: none; }
+:root[data-lang="id"] [data-t="id"] { display: inline; }
+
+/* ---------- section headings -------------------------------------------- */
+section { margin-bottom: var(--s5); }
+section > h2 {
+  font: 500 0.8125rem/1 var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s2);
+  padding-bottom: var(--s1);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+/* ---------- the entry: one pattern, reused in every section -------------- */
+.entry {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  gap: 0 var(--s3);
+  margin-bottom: 1.15rem;
+}
+.entry:last-child { margin-bottom: 0; }
+.when {
+  font-family: var(--mono);
+  font-size: 0.7188rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-faint);
+  padding-top: 0.2rem;
+  white-space: nowrap;
+}
+.what { min-width: 0; max-width: var(--measure); }
+.primary {
+  font: 600 1rem/1.35 var(--sans);
+  margin: 0;
+  text-wrap: pretty;
+}
+.sub {
+  font: 400 0.8125rem/1.4 var(--sans);
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.1rem 0 0;
+}
+.bullets { margin: 0.45rem 0 0; padding-left: 1.05rem; }
+.bullets li { margin-bottom: 0.28rem; color: var(--ink-soft); }
+.bullets li::marker { color: var(--ink-faint); }
+.entry.flat .what { color: var(--ink-soft); }
+.entry.flat strong { color: var(--ink); font-weight: 600; }
+.summary .what { max-width: var(--measure); font-size: 1rem; color: var(--ink-soft); }
+
+a.ref {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  overflow-wrap: anywhere;
+}
+a.ref:hover { border-bottom-color: currentColor; }
+
+/* ---------- narrow ------------------------------------------------------- */
+@media (max-width: 46rem) {
+  .entry { grid-template-columns: 1fr; gap: 0.15rem; }
+  .when { padding-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
