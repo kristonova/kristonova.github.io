@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -631,6 +632,10 @@ def _env():
     env = Environment(loader=FileSystemLoader(ROOT / "templates"),
                       autoescape=True)
     env.filters["runs_html"] = _runs_html
+    # The portfolio ladder spans 35 -> 83,529, so bars are drawn on a log
+    # scale. Deriving the width from the value keeps the chart honest: change
+    # the number in the YAML and the bar moves with it.
+    env.filters["log10"] = math.log10
     return env
 
 

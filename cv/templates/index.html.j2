@@ -159,6 +159,59 @@
   text-wrap: pretty;
 }
 
+/* ---------- data visualisation portfolio --------------------------------- */
+/* Same grid rhythm as .entry — the left column carries year over data source
+   instead of a date range. No card, no shadow, no thumbnail: the chart below
+   is the preview, and it is drawn from the project's own numbers. */
+.viz {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  gap: 0 var(--s3);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.viz:first-of-type { padding-top: 0; }
+.viz:last-of-type { border-bottom: 0; padding-bottom: 0; }
+.viz .when b { display: block; font-weight: 400; color: var(--ink-soft); }
+
+.viz-body { min-width: 0; max-width: var(--measure); }
+.viz-body h3 { font: 600 1rem/1.35 var(--sans); margin: 0; text-wrap: pretty; }
+.viz-body p { margin: 0.15rem 0 0; color: var(--ink-soft); text-wrap: pretty; }
+
+/* Inline SVG, never <img src=".svg">: the bars are filled with var(--accent)
+   so they follow the theme, and a custom property does not cross into an
+   external image. */
+.spark { margin: var(--s2) 0 0; }
+.spark svg { display: block; width: 100%; }
+.spark .stack { height: 0.625rem; }
+.spark .ladder { height: 2rem; }
+.spark figcaption {
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.65;
+  font-variant-numeric: tabular-nums;
+  text-wrap: pretty;
+}
+.spark figcaption span { display: block; color: var(--ink-faint); }
+.spark figcaption b { font-weight: 400; white-space: nowrap; }
+
+/* Metric strip — same treatment as .evidence under a practice area. */
+.viz-stats {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.viz-stats b { display: block; color: var(--ink-soft); font-weight: 500; }
+.viz .ref { display: inline-block; margin-top: 0.6rem; }
+
 /* ---------- contact ------------------------------------------------------ */
 .contact-list {
   list-style: none;
@@ -221,6 +274,7 @@
   .masthead { grid-template-columns: 1fr; gap: var(--s4); }
   .portrait { max-width: 11rem; }
   .practice { grid-template-columns: 1fr; gap: 0.35rem; }
+  .viz { grid-template-columns: 1fr; gap: 0.35rem; }
 }
 
 @media print {
@@ -247,6 +301,48 @@
 
 {%- macro refs(e) -%}
   {%- for u in e.links %}<div><a class="ref" href="{{ u }}" target="_blank" rel="noopener">{{ u }}</a></div>{% endfor -%}
+{%- endmacro -%}
+
+{#- A sparkline drawn from the project's own data. Two shapes, because the two
+    datasets have two shapes: `stack` is a composition (one bar, five parts),
+    `ladder` is a hierarchy (four nested levels, log scale because 35 and 83,529
+    do not share a linear axis). Both are one hue at varying opacity, so they
+    stay monochrome and invert with --accent in dark mode. -#}
+{%- macro spark(sp, lang) -%}
+  <figure class="spark">
+  {%- if sp.kind == 'stack' -%}
+    {%- set total = sp.segments | sum(attribute='value') -%}
+    {%- set ns = namespace(x=0.0) -%}
+    <svg class="stack" viewBox="0 0 100 6" preserveAspectRatio="none"
+         shape-rendering="crispEdges" role="img" aria-label="{{ sp.caption[lang] }}">
+      <title>{{ sp.caption[lang] }}</title>
+      {%- for g in sp.segments -%}
+        {%- set w = g.value / total * 100 -%}
+        <rect x="{{ '%.4f' % ns.x }}" y="0" width="{{ '%.4f' % (w - 0.35) }}" height="6"
+              fill="var(--accent)" opacity="{{ g.opacity }}"/>
+        {%- set ns.x = ns.x + w -%}
+      {%- endfor -%}
+    </svg>
+  {%- else -%}
+    {%- set peak = sp.segments | map(attribute='value') | max -%}
+    <svg class="ladder" viewBox="0 0 100 26" preserveAspectRatio="none"
+         shape-rendering="crispEdges" role="img" aria-label="{{ sp.caption[lang] }}">
+      <title>{{ sp.caption[lang] }}</title>
+      {%- for g in sp.segments -%}
+        <rect x="0" y="{{ loop.index0 * 7 }}"
+              width="{{ '%.4f' % (g.value | log10 / (peak | log10) * 100) }}" height="5"
+              fill="var(--accent)" opacity="{{ '%.2f' % (0.40 + 0.20 * loop.index0) }}"/>
+      {%- endfor -%}
+    </svg>
+  {%- endif %}
+    <figcaption>
+      <span>{{ sp.caption[lang] }}</span>
+      {% for g in sp.segments %}
+        {%- set n = '{:,}'.format(g.value) | replace(',', '.' if lang == 'id' else ',') -%}
+        <b>{% if sp.kind == 'stack' %}{{ g.label[lang] }} {{ n }}{% else %}{{ n }} {{ g.label[lang] }}{% endif %}</b>
+        {{- ' · ' if not loop.last }}{% endfor -%}
+    </figcaption>
+  </figure>
 {%- endmacro -%}
 
 {%- macro entry(e, lang) -%}
@@ -305,6 +401,25 @@
       <h2>{{ site.t.work[lang] }}</h2>
       {%- for e in work %}{{ entry(e, lang) }}{% endfor %}
       <p style="margin-top:var(--s2)"><a class="more" href="cv/">{{ site.t.work_more[lang] }}</a></p>
+    </section>
+
+    <section>
+      <h2>{{ site.t.portfolio[lang] }}</h2>
+      {%- for v in site.portfolio %}
+      <div class="viz">
+        <div class="when">{{ v.year }}<b>{{ v.org }}</b></div>
+        <div class="viz-body">
+          <h3>{{ v.title[lang] }}</h3>
+          <p>{{ v.what[lang] }}</p>
+          {{ spark(v.spark, lang) }}
+          <span class="viz-stats">
+            {%- for line in v.stats[lang] %}<b>{{ line }}</b>{% endfor -%}
+          </span>
+          <a class="ref" href="{{ v.url }}" target="_blank" rel="noopener">{{ v.url }}</a>
+        </div>
+      </div>
+      {%- endfor %}
+      <p style="margin-top:var(--s2)"><a class="more" href="{{ meta.links.GitHub }}" target="_blank" rel="noopener">{{ site.t.portfolio_more[lang] }}</a></p>
     </section>
 
     <section>

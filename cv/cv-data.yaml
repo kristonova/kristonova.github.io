@@ -956,6 +956,89 @@ site:
           yang repetitif, sehingga tim dapat lebih berfokus pada pekerjaan strategis bernilai tinggi.
       evidence: EFISON Lisan Teknologi (dukungan HPC L1) · Kopi Kenangan · Universitas Gadjah Mada
 
+  # Published data-visualisation work. Live, clickable proof — the one place on
+  # the page a reader can check the claims themselves.
+  #
+  # These figures are the sanctioned second exception to the "never write a
+  # figure here" rule above: they are counted from datasets that live in the
+  # visualisation repos, not from this file, so build.py cannot derive them.
+  # `source` names the exact upstream file each number came from — re-audit with
+  # curl against those paths before changing any of them.
+  portfolio:
+    - id: idm2024
+      year: '2024'
+      org: Kemendes PDTT          # left column, mono; institution names are not translated
+      title:
+        en: Nusantara Village Map — Village Development Index 2024
+        id: Peta Desa Nusantara — Indeks Desa Membangun 2024
+      what:
+        en: >-
+          Interactive map of the 2024 Village Development Index at village
+          resolution, drillable from national down to district level.
+        id: >-
+          Peta interaktif Indeks Desa Membangun 2024 pada resolusi desa,
+          dapat ditelusuri dari tingkat nasional hingga kabupaten.
+      url: https://kristonova.github.io/Visualisasi-Indeks-Desa-Membangun--IDM--2024/
+      source: data/idm/meta.json · data/geo/join-audit.json
+      stats:
+        en:
+          - '75,265 villages · 434 regencies · 37 provinces'
+          - 'IKS · IKE · IKL · 5 status classes'
+          - '99.55% village ↔ geometry join rate'
+        id:
+          - '75.265 desa · 434 kabupaten/kota · 37 provinsi'
+          - 'IKS · IKE · IKL · 5 kelas status'
+          - '99,55% join rate desa ↔ geometri'
+      spark:
+        kind: stack
+        caption:
+          en: Village status distribution, 75,261 scored villages
+          id: Sebaran status desa, 75.261 desa berskor
+        segments:
+          - { value: 17203, opacity: 1.00, label: { en: Self-reliant,  id: Mandiri } }
+          - { value: 23063, opacity: 0.82, label: { en: Advanced,      id: Maju } }
+          - { value: 24532, opacity: 0.64, label: { en: Developing,    id: Berkembang } }
+          - { value: 6100,  opacity: 0.47, label: { en: Lagging,       id: Tertinggal } }
+          - { value: 4363,  opacity: 0.30, label: { en: Far behind,    id: Sangat Tertinggal } }
+
+    # Data currently published by this app is the 2019 election; the page's own
+    # title says so. Label it 2019 until the 2024 scrape ships — then only
+    # `year`, `title`, `stats` and `spark` here need to change.
+    - id: pemilu2019
+      year: '2019'
+      org: KPU
+      title:
+        en: Indonesian Election Results Map 2019
+        id: Peta Hasil Pemilu Indonesia 2019
+      what:
+        en: >-
+          Tiered results map covering four contests in one view, drillable from
+          national level down to sub-district.
+        id: >-
+          Peta hasil berjenjang yang memuat empat kontes dalam satu tampilan,
+          dapat ditelusuri dari tingkat nasional hingga kecamatan.
+      url: https://kristonova.github.io/Visualisasi-Pemilu-Indonesia-2024/
+      source: data/wilayah.json · data/election2019.json
+      stats:
+        en:
+          - '7,331 sub-districts · 644 regencies · 34 provinces + overseas'
+          - '4 contests · 20 parties'
+          - 'Tiered drill-down, national → sub-district'
+        id:
+          - '7.331 kecamatan · 644 kabupaten/kota · 34 provinsi + luar negeri'
+          - '4 kontes · 20 partai'
+          - 'Penelusuran berjenjang, nasional → kecamatan'
+      spark:
+        kind: ladder
+        caption:
+          en: Administrative depth covered, log scale
+          id: Kedalaman wilayah yang dicakup, skala logaritmik
+        segments:
+          - { value: 35,    label: { en: provinces,     id: provinsi } }
+          - { value: 644,   label: { en: regencies,     id: kabupaten/kota } }
+          - { value: 7331,  label: { en: sub-districts, id: kecamatan } }
+          - { value: 83529, label: { en: villages,      id: kelurahan/desa } }
+
   # UI labels for the landing page.
   t:
     clients:
@@ -970,6 +1053,12 @@ site:
     work_more:
       en: Full engagement history →
       id: Lihat seluruh riwayat proyek & portofolio →
+    portfolio:
+      en: Data visualisation portfolio
+      id: Portofolio Visualisasi Data
+    portfolio_more:
+      en: All projects on GitHub →
+      id: Seluruh proyek di GitHub →
     research:
       en: Research & publications
       id: Riset & Publikasi Ilmiah

@@ -392,6 +392,59 @@ a.ref:hover { border-bottom-color: currentColor; }
   text-wrap: pretty;
 }
 
+/* ---------- data visualisation portfolio --------------------------------- */
+/* Same grid rhythm as .entry — the left column carries year over data source
+   instead of a date range. No card, no shadow, no thumbnail: the chart below
+   is the preview, and it is drawn from the project's own numbers. */
+.viz {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  gap: 0 var(--s3);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.viz:first-of-type { padding-top: 0; }
+.viz:last-of-type { border-bottom: 0; padding-bottom: 0; }
+.viz .when b { display: block; font-weight: 400; color: var(--ink-soft); }
+
+.viz-body { min-width: 0; max-width: var(--measure); }
+.viz-body h3 { font: 600 1rem/1.35 var(--sans); margin: 0; text-wrap: pretty; }
+.viz-body p { margin: 0.15rem 0 0; color: var(--ink-soft); text-wrap: pretty; }
+
+/* Inline SVG, never <img src=".svg">: the bars are filled with var(--accent)
+   so they follow the theme, and a custom property does not cross into an
+   external image. */
+.spark { margin: var(--s2) 0 0; }
+.spark svg { display: block; width: 100%; }
+.spark .stack { height: 0.625rem; }
+.spark .ladder { height: 2rem; }
+.spark figcaption {
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.65;
+  font-variant-numeric: tabular-nums;
+  text-wrap: pretty;
+}
+.spark figcaption span { display: block; color: var(--ink-faint); }
+.spark figcaption b { font-weight: 400; white-space: nowrap; }
+
+/* Metric strip — same treatment as .evidence under a practice area. */
+.viz-stats {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.viz-stats b { display: block; color: var(--ink-soft); font-weight: 500; }
+.viz .ref { display: inline-block; margin-top: 0.6rem; }
+
 /* ---------- contact ------------------------------------------------------ */
 .contact-list {
   list-style: none;
@@ -454,6 +507,7 @@ a.ref:hover { border-bottom-color: currentColor; }
   .masthead { grid-template-columns: 1fr; gap: var(--s4); }
   .portrait { max-width: 11rem; }
   .practice { grid-template-columns: 1fr; gap: 0.35rem; }
+  .viz { grid-template-columns: 1fr; gap: 0.35rem; }
 }
 
 @media print {
@@ -579,6 +633,56 @@ a.ref:hover { border-bottom-color: currentColor; }
     </div>
   </div>
       <p style="margin-top:var(--s2)"><a class="more" href="cv/">Full engagement history →</a></p>
+    </section>
+
+    <section>
+      <h2>Data visualisation portfolio</h2>
+      <div class="viz">
+        <div class="when">2024<b>Kemendes PDTT</b></div>
+        <div class="viz-body">
+          <h3>Nusantara Village Map — Village Development Index 2024</h3>
+          <p>Interactive map of the 2024 Village Development Index at village resolution, drillable from national down to district level.</p>
+          <figure class="spark"><svg class="stack" viewBox="0 0 100 6" preserveAspectRatio="none"
+         shape-rendering="crispEdges" role="img" aria-label="Village status distribution, 75,261 scored villages">
+      <title>Village status distribution, 75,261 scored villages</title><rect x="0.0000" y="0" width="22.5078" height="6"
+              fill="var(--accent)" opacity="1.0"/><rect x="22.8578" y="0" width="30.2940" height="6"
+              fill="var(--accent)" opacity="0.82"/><rect x="53.5018" y="0" width="32.2459" height="6"
+              fill="var(--accent)" opacity="0.64"/><rect x="86.0977" y="0" width="7.7551" height="6"
+              fill="var(--accent)" opacity="0.47"/><rect x="94.2028" y="0" width="5.4472" height="6"
+              fill="var(--accent)" opacity="0.3"/></svg>
+    <figcaption>
+      <span>Village status distribution, 75,261 scored villages</span>
+      <b>Self-reliant 17,203</b> · <b>Advanced 23,063</b> · <b>Developing 24,532</b> · <b>Lagging 6,100</b> · <b>Far behind 4,363</b></figcaption>
+  </figure>
+          <span class="viz-stats"><b>75,265 villages · 434 regencies · 37 provinces</b><b>IKS · IKE · IKL · 5 status classes</b><b>99.55% village ↔ geometry join rate</b></span>
+          <a class="ref" href="https://kristonova.github.io/Visualisasi-Indeks-Desa-Membangun--IDM--2024/" target="_blank" rel="noopener">https://kristonova.github.io/Visualisasi-Indeks-Desa-Membangun--IDM--2024/</a>
+        </div>
+      </div>
+      <div class="viz">
+        <div class="when">2019<b>KPU</b></div>
+        <div class="viz-body">
+          <h3>Indonesian Election Results Map 2019</h3>
+          <p>Tiered results map covering four contests in one view, drillable from national level down to sub-district.</p>
+          <figure class="spark"><svg class="ladder" viewBox="0 0 100 26" preserveAspectRatio="none"
+         shape-rendering="crispEdges" role="img" aria-label="Administrative depth covered, log scale">
+      <title>Administrative depth covered, log scale</title><rect x="0" y="0"
+              width="31.3718" height="5"
+              fill="var(--accent)" opacity="0.40"/><rect x="0" y="7"
+              width="57.0699" height="5"
+              fill="var(--accent)" opacity="0.60"/><rect x="0" y="14"
+              width="78.5309" height="5"
+              fill="var(--accent)" opacity="0.80"/><rect x="0" y="21"
+              width="100.0000" height="5"
+              fill="var(--accent)" opacity="1.00"/></svg>
+    <figcaption>
+      <span>Administrative depth covered, log scale</span>
+      <b>35 provinces</b> · <b>644 regencies</b> · <b>7,331 sub-districts</b> · <b>83,529 villages</b></figcaption>
+  </figure>
+          <span class="viz-stats"><b>7,331 sub-districts · 644 regencies · 34 provinces + overseas</b><b>4 contests · 20 parties</b><b>Tiered drill-down, national → sub-district</b></span>
+          <a class="ref" href="https://kristonova.github.io/Visualisasi-Pemilu-Indonesia-2024/" target="_blank" rel="noopener">https://kristonova.github.io/Visualisasi-Pemilu-Indonesia-2024/</a>
+        </div>
+      </div>
+      <p style="margin-top:var(--s2)"><a class="more" href="https://github.com/kristonova" target="_blank" rel="noopener">All projects on GitHub →</a></p>
     </section>
 
     <section>
@@ -740,6 +844,56 @@ a.ref:hover { border-bottom-color: currentColor; }
     </div>
   </div>
       <p style="margin-top:var(--s2)"><a class="more" href="cv/">Lihat seluruh riwayat proyek &amp; portofolio →</a></p>
+    </section>
+
+    <section>
+      <h2>Portofolio Visualisasi Data</h2>
+      <div class="viz">
+        <div class="when">2024<b>Kemendes PDTT</b></div>
+        <div class="viz-body">
+          <h3>Peta Desa Nusantara — Indeks Desa Membangun 2024</h3>
+          <p>Peta interaktif data Indeks Desa Membangun 2024 hingga tingkat desa, dilengkapi eksplorasi berjenjang dari level nasional sampai kabupaten/kota.</p>
+          <figure class="spark"><svg class="stack" viewBox="0 0 100 6" preserveAspectRatio="none"
+         shape-rendering="crispEdges" role="img" aria-label="Distribusi status 75.261 desa terdata">
+      <title>Distribusi status 75.261 desa terdata</title><rect x="0.0000" y="0" width="22.5078" height="6"
+              fill="var(--accent)" opacity="1.0"/><rect x="22.8578" y="0" width="30.2940" height="6"
+              fill="var(--accent)" opacity="0.82"/><rect x="53.5018" y="0" width="32.2459" height="6"
+              fill="var(--accent)" opacity="0.64"/><rect x="86.0977" y="0" width="7.7551" height="6"
+              fill="var(--accent)" opacity="0.47"/><rect x="94.2028" y="0" width="5.4472" height="6"
+              fill="var(--accent)" opacity="0.3"/></svg>
+    <figcaption>
+      <span>Distribusi status 75.261 desa terdata</span>
+      <b>Mandiri 17.203</b> · <b>Maju 23.063</b> · <b>Berkembang 24.532</b> · <b>Tertinggal 6.100</b> · <b>Sangat Tertinggal 4.363</b></figcaption>
+  </figure>
+          <span class="viz-stats"><b>75.265 desa · 434 kabupaten/kota · 37 provinsi</b><b>Dimensi IKS · IKE · IKL · 5 kategori status</b><b>99,55% data desa terhubung ke peta spasial</b></span>
+          <a class="ref" href="https://kristonova.github.io/Visualisasi-Indeks-Desa-Membangun--IDM--2024/" target="_blank" rel="noopener">https://kristonova.github.io/Visualisasi-Indeks-Desa-Membangun--IDM--2024/</a>
+        </div>
+      </div>
+      <div class="viz">
+        <div class="when">2019<b>KPU</b></div>
+        <div class="viz-body">
+          <h3>Peta Hasil Pemilu Indonesia 2019</h3>
+          <p>Peta interaktif perolehan suara Pemilu 2019 yang menyatukan empat jenis pemilihan dalam satu tampilan, dengan navigasi berjenjang dari tingkat nasional hingga kecamatan.</p>
+          <figure class="spark"><svg class="ladder" viewBox="0 0 100 26" preserveAspectRatio="none"
+         shape-rendering="crispEdges" role="img" aria-label="Hierarki wilayah administratif, skala logaritmik">
+      <title>Hierarki wilayah administratif, skala logaritmik</title><rect x="0" y="0"
+              width="31.3718" height="5"
+              fill="var(--accent)" opacity="0.40"/><rect x="0" y="7"
+              width="57.0699" height="5"
+              fill="var(--accent)" opacity="0.60"/><rect x="0" y="14"
+              width="78.5309" height="5"
+              fill="var(--accent)" opacity="0.80"/><rect x="0" y="21"
+              width="100.0000" height="5"
+              fill="var(--accent)" opacity="1.00"/></svg>
+    <figcaption>
+      <span>Hierarki wilayah administratif, skala logaritmik</span>
+      <b>35 provinsi</b> · <b>644 kabupaten/kota</b> · <b>7.331 kecamatan</b> · <b>83.529 kelurahan/desa</b></figcaption>
+  </figure>
+          <span class="viz-stats"><b>7.331 kecamatan · 644 kabupaten/kota · 34 provinsi + luar negeri</b><b>4 jenis pemilihan · 20 partai politik</b><b>Eksplorasi data berjenjang: nasional → kecamatan</b></span>
+          <a class="ref" href="https://kristonova.github.io/Visualisasi-Pemilu-Indonesia-2024/" target="_blank" rel="noopener">https://kristonova.github.io/Visualisasi-Pemilu-Indonesia-2024/</a>
+        </div>
+      </div>
+      <p style="margin-top:var(--s2)"><a class="more" href="https://github.com/kristonova" target="_blank" rel="noopener">Seluruh proyek di GitHub →</a></p>
     </section>
 
     <section>
