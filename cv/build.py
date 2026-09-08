@@ -43,12 +43,19 @@ MONTHS_LONG = {
 }
 
 L = {
-    "present": {"en": "Present", "id": "Saat ini"},
+    "present": {"en": "Present", "id": "Saat\u00a0ini"},
     "graduated": {"en": "Graduated", "id": "Lulus"},
     "expired": {"en": "expired", "id": "kedaluwarsa"},
     "issued": {"en": "issued", "id": "terbit"},
     "reg": {"en": "Reg.", "id": "No. Reg."},
     "resume_note": {"en": "Résumé", "id": "Résumé"},
+    # print & download menu
+    "print_menu": {"en": "Print / PDF", "id": "Cetak / PDF"},
+    "print_current": {"en": "Print current view", "id": "Cetak tampilan saat ini"},
+    "print_full": {"en": "Print Full CV (PDF)", "id": "Cetak CV Lengkap (PDF)"},
+    "print_resume": {"en": "Print Résumé (PDF, 2 pages)", "id": "Cetak Résumé (PDF, 2 hlm)"},
+    "download_resume_docx": {"en": "Download Résumé (.docx)", "id": "Unduh Résumé (.docx)"},
+    "download_cv_docx": {"en": "Download Full CV (.docx)", "id": "Unduh CV Lengkap (.docx)"},
     # section titles
     "summary": {"en": "Profile", "id": "Profil Profesional"},
     "education": {"en": "Education", "id": "Pendidikan"},
@@ -102,8 +109,17 @@ def pick_list(value, lang: str) -> list[str]:
     if not value:
         return []
     if isinstance(value, dict):
-        return list(value.get(lang) or value.get("en") or [])
-    return list(value)
+        raw = list(value.get(lang) or value.get("en") or [])
+    else:
+        raw = list(value)
+    out = []
+    for item in raw:
+        if isinstance(item, dict):
+            # Defensive: flatten accidental dict into string
+            out.append(" ".join(f"{k}: {v}" for k, v in item.items()))
+        else:
+            out.append(str(item))
+    return out
 
 
 def fmt_point(value, lang: str) -> str:
@@ -111,11 +127,11 @@ def fmt_point(value, lang: str) -> str:
     if value is None:
         return L["present"][lang]
     if isinstance(value, (dt.date, dt.datetime)):
-        return f"{MONTHS[lang][value.month - 1]} {value.year}"
+        return f"{MONTHS[lang][value.month - 1]}\u00a0{value.year}"
     s = str(value)
     m = re.fullmatch(r"(\d{4})-(\d{2})", s)
     if m:
-        return f"{MONTHS[lang][int(m.group(2)) - 1]} {m.group(1)}"
+        return f"{MONTHS[lang][int(m.group(2)) - 1]}\u00a0{m.group(1)}"
     return s
 
 

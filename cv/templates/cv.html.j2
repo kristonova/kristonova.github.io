@@ -42,6 +42,7 @@
 }
 .contact a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
 .contact a:hover { border-bottom-color: currentColor; }
+.contact .sep { color: var(--ink-faint); margin: 0 0.15rem; user-select: none; }
 
 /* ---------- nested client engagements ----------------------------------- */
 .group {
@@ -75,39 +76,290 @@
 
 @media (max-width: 46rem) {
   .toolbar { justify-content: flex-start; }
+  .dropdown { right: auto; left: 0; min-width: 16rem; }
+}
+
+/* ---------- print & download menu -------------------------------------- */
+.menu-wrap {
+  position: relative;
+  display: inline-block;
+}
+.btn-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font: 500 11px/1 var(--sans);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn-tool:hover, .btn-tool[aria-expanded="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+.btn-tool:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.btn-tool svg {
+  width: 14px;
+  height: 14px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  min-width: 17.5rem;
+  background: var(--ground);
+  border: 1px solid var(--rule-strong);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  padding: 0.45rem;
+  z-index: 50;
+}
+.dropdown.open {
+  display: block;
+  animation: dropFade 0.12s ease-out;
+}
+@keyframes dropFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-header {
+  font: 600 10px/1 var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding: 0.45rem 0.6rem 0.3rem;
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.6rem;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ink);
+  font: 400 12.5px/1.3 var(--sans);
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.dropdown-item:hover, .dropdown-item:focus-visible {
+  background: var(--accent-soft);
+  color: var(--accent);
+  outline: none;
+}
+.dropdown-item .item-title {
+  flex: 1 1 auto;
+}
+.dropdown-item .item-hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.dropdown-item:hover .item-hint {
+  color: var(--accent);
+}
+.docx-badge {
+  display: inline-block;
+  font: 500 9.5px/1 var(--mono);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.dropdown-divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 0.4rem 0.3rem;
 }
 
 /* ---------- print -------------------------------------------------------- */
 @media print {
-  @page { margin: 12mm 13mm; }
-  /* Spacing is rem-based, so the root must shrink too — otherwise the type
-     gets smaller while the whitespace stays screen-sized. */
-  html { font-size: 9pt; }
-  :root { --gutter: 6.5rem; }
-  body { background: #fff; color: #000; font-size: 9.4pt; line-height: 1.42; }
-  .toolbar { display: none; }
-  .page { max-width: none; padding: 0; }
-  .masthead { margin-bottom: 1.2rem; }
-  .masthead h1 { font-size: 20pt; }
-  .headline { font-size: 11pt; margin-bottom: 0.5rem; }
-  .contact { font-size: 7.6pt; margin-bottom: 0.15rem; }
-  section { margin-bottom: 1rem; }
-  section > h2 { font-size: 8.4pt; margin-bottom: 0.5rem; padding-bottom: 0.22rem; color: #1f4e79; }
-  .entry { margin-bottom: 0.6rem; gap: 0 1rem; }
-  .primary { font-size: 9.8pt; }
-  .sub { font-size: 8.4pt; }
-  .when { font-size: 8pt; }
-  .bullets { margin-top: 0.2rem; }
-  .bullets li { margin-bottom: 0.1rem; }
-  .group { margin-top: 0.45rem; }
-  .child { margin-bottom: 0.45rem; }
-  /* The measure that keeps prose readable on screen wastes ~2in of paper. */
-  .what { max-width: none; }
-  /* Never avoid breaks on a section — Experience is longer than a page and the
-     rule only pushes it, leaving the previous page half empty. */
-  .entry, .child { break-inside: avoid; }
-  section > h2 { break-after: avoid; }
-  a.ref, .contact a { color: #1f4e79; }
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  /* Guarantee crisp, high-contrast light colors on paper regardless of active theme */
+  :root {
+    --gutter: 8.2rem;
+    --ground: #ffffff !important;
+    --surface: #f3f6f9 !important;
+    --ink: #111827 !important;
+    --ink-soft: #374151 !important;
+    --ink-faint: #6b7280 !important;
+    --rule: #e5e7eb !important;
+    --rule-strong: #9ca3af !important;
+    --accent: #1f4e79 !important;
+    --accent-soft: #e6eef6 !important;
+  }
+
+  html {
+    font-size: 8.8pt;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111827 !important;
+    font-size: 9.2pt;
+    line-height: 1.4;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .toolbar { display: none !important; }
+  .page { max-width: none; padding: 0; margin: 0; }
+
+  .masthead { margin-bottom: 1.1rem; break-inside: avoid; }
+  .masthead h1 { font-size: 20pt; line-height: 1.1; margin-bottom: 0.25rem; }
+  .headline { font-size: 10.5pt; margin-bottom: 0.45rem; color: #1f4e79; }
+  .contact { font-size: 7.5pt; margin-bottom: 0.15rem; gap: 0.15rem 0.5rem; }
+  .contact a { color: #1f4e79; text-decoration: none; border-bottom: none; }
+  .contact .sep { color: #9ca3af; margin: 0 0.2rem; }
+
+  section { margin-bottom: 0.95rem; }
+  section > h2 {
+    font-size: 8.2pt;
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.2rem;
+    color: #1f4e79;
+    border-bottom: 1px solid #9ca3af;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Entry layout: avoid date collision and eliminate bad page splits */
+  .entry {
+    display: grid;
+    grid-template-columns: var(--gutter) minmax(0, 1fr);
+    gap: 0 0.9rem;
+    margin-bottom: 0.55rem;
+    break-inside: auto;
+  }
+  .entry.flat {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.42rem;
+  }
+  .entry:not(:has(.group)) {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .when {
+    font-size: 7.5pt;
+    line-height: 1.25;
+    color: #4b5563;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    padding-top: 0.15rem;
+  }
+  .what {
+    max-width: none;
+    min-width: 0;
+  }
+  .primary {
+    font-size: 9.4pt;
+    line-height: 1.3;
+    break-after: avoid;
+  }
+  .sub {
+    font-size: 8.2pt;
+    line-height: 1.35;
+    color: #4b5563;
+  }
+  .bullets {
+    margin-top: 0.2rem;
+    padding-left: 1rem;
+  }
+  .bullets li {
+    margin-bottom: 0.12rem;
+    color: #374151;
+    break-inside: avoid;
+  }
+
+  .group {
+    margin-top: 0.4rem;
+    padding-left: 0.75rem;
+    border-left: 1.5px solid #cbd5e1;
+    break-inside: auto;
+  }
+  .group > h4 {
+    font-size: 7.2pt;
+    margin: 0.35rem 0 0.4rem;
+    color: #4b5563;
+    break-after: avoid;
+  }
+  .child {
+    margin-bottom: 0.45rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .child .primary {
+    font-size: 8.8pt;
+  }
+  .child .when {
+    font-size: 7.2pt;
+    padding-bottom: 0.05rem;
+  }
+
+  a.ref {
+    color: #1f4e79;
+    font-size: 7pt;
+    border-bottom: none;
+    word-break: break-all;
+  }
+}
+
+/* Specific optimizations for Résumé view in print (guarantees neat 2-page fit) */
+@media print {
+  :root[data-view="resume"] {
+    --gutter: 8rem;
+  }
+  :root[data-view="resume"] html {
+    font-size: 8.5pt;
+  }
+  :root[data-view="resume"] body {
+    font-size: 8.8pt;
+    line-height: 1.35;
+  }
+  :root[data-view="resume"] section {
+    margin-bottom: 0.75rem;
+  }
+  :root[data-view="resume"] .entry {
+    margin-bottom: 0.45rem;
+  }
+  :root[data-view="resume"] .bullets li {
+    margin-bottom: 0.08rem;
+  }
+  :root[data-view="resume"] .group {
+    margin-top: 0.3rem;
+  }
+  :root[data-view="resume"] .child {
+    margin-bottom: 0.35rem;
+  }
 }
 </style>
 </head>
@@ -123,6 +375,52 @@
     <div class="seg" role="group" aria-label="View">
       <button type="button" data-set="view" data-value="full" aria-pressed="true">Full CV</button>
       <button type="button" data-set="view" data-value="resume" aria-pressed="false">Résumé</button>
+    </div>
+    <div class="menu-wrap" id="print-menu-wrap">
+      <button type="button" class="btn-tool" id="print-menu-btn" aria-haspopup="true" aria-expanded="false" aria-label="Cetak atau unduh">
+        <svg class="i-print" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span data-t="id">Cetak / PDF ▾</span>
+        <span data-t="en">Print / PDF ▾</span>
+      </button>
+      <div class="dropdown" id="print-dropdown" role="menu">
+        <div class="dropdown-group">
+          <div class="dropdown-header">
+            <span data-t="id">Cetak / Simpan PDF</span>
+            <span data-t="en">Print / Save as PDF</span>
+          </div>
+          <button type="button" class="dropdown-item" role="menuitem" id="action-print-current">
+            <span class="item-title"><span data-t="id">Cetak Tampilan Saat Ini</span><span data-t="en">Print Current View</span></span>
+            <span class="item-hint">Ctrl+P</span>
+          </button>
+          <button type="button" class="dropdown-item" role="menuitem" id="action-print-full">
+            <span class="item-title"><span data-t="id">Cetak CV Lengkap (PDF)</span><span data-t="en">Print Full CV (PDF)</span></span>
+            <span class="item-hint"><span data-t="id">Lengkap</span><span data-t="en">All tiers</span></span>
+          </button>
+          <button type="button" class="dropdown-item" role="menuitem" id="action-print-resume">
+            <span class="item-title"><span data-t="id">Cetak Résumé (PDF, 2 hlm)</span><span data-t="en">Print Résumé (PDF, 2 pages)</span></span>
+            <span class="item-hint"><span data-t="id">Format ATS</span><span data-t="en">ATS format</span></span>
+          </button>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-group">
+          <div class="dropdown-header">
+            <span data-t="id">Unduh Dokumen Word (.docx)</span>
+            <span data-t="en">Download Word (.docx)</span>
+          </div>
+          <a class="dropdown-item" role="menuitem" id="link-download-resume" href="out/resume.en.docx" download>
+            <span class="item-title"><span data-t="id">Unduh Résumé (.docx)</span><span data-t="en">Download Résumé (.docx)</span></span>
+            <span class="item-hint docx-badge">DOCX</span>
+          </a>
+          <a class="dropdown-item" role="menuitem" id="link-download-full" href="out/cv-academic.en.docx" download>
+            <span class="item-title"><span data-t="id">Unduh CV Lengkap (.docx)</span><span data-t="en">Download Full CV (.docx)</span></span>
+            <span class="item-hint docx-badge">DOCX</span>
+          </a>
+        </div>
+      </div>
     </div>
     <button type="button" class="iconbtn" id="theme-toggle" aria-label="Toggle theme">
       <svg class="i-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -148,12 +446,15 @@
       <p class="headline">{{ meta.headline[lang] }}</p>
       <div class="contact">
         <span>{{ meta.location[lang] }}</span>
-        {%- if meta.phone %}<span>{{ meta.phone }}</span>{% endif %}
+        <span class="sep">·</span>
+        {%- if meta.phone %}<span>{{ meta.phone }}</span> <span class="sep">·</span> {% endif %}
         <a href="mailto:{{ meta.email }}">{{ meta.email }}</a>
-        {%- for e in meta.emails_alt %}<a href="mailto:{{ e }}">{{ e }}</a>{% endfor %}
+        {%- for e in meta.emails_alt %} <span class="sep">·</span> <a href="mailto:{{ e }}">{{ e }}</a>{% endfor %}
       </div>
       <div class="contact">
-        {%- for name, url in meta.links.items() %}<a href="{{ url }}" target="_blank" rel="noopener">{{ name }}</a>{% endfor %}
+        {%- for name, url in meta.links.items() %}
+        {%- if not loop.first %} <span class="sep">·</span> {% endif %}<a href="{{ url }}" target="_blank" rel="noopener">{{ name }}</a>
+        {%- endfor %}
       </div>
     </header>
 
@@ -219,6 +520,17 @@
     try { localStorage.setItem('cv.' + key, value); } catch (e) { /* private mode */ }
   }
 
+  function updateDownloadLinks(lang) {
+    var resumeLink = document.getElementById('link-download-resume');
+    var fullLink = document.getElementById('link-download-full');
+    if (resumeLink) {
+      resumeLink.setAttribute('href', 'out/resume.' + lang + '.docx');
+    }
+    if (fullLink) {
+      fullLink.setAttribute('href', 'out/cv-academic.' + lang + '.docx');
+    }
+  }
+
   function apply(key, value) {
     root.setAttribute('data-' + key, value);
     document.querySelectorAll('[data-set="' + key + '"]').forEach(function (b) {
@@ -228,12 +540,19 @@
       root.setAttribute('lang', value);
       var t = document.getElementById('theme-toggle');
       if (t) t.setAttribute('aria-label', value === 'id' ? 'Ganti tema' : 'Toggle theme');
+      updateDownloadLinks(value);
     }
   }
 
-  Object.keys(defaults).forEach(function (key) {
-    apply(key, read(key) || defaults[key]);
-  });
+  // URL parameters support (e.g. ?view=resume&lang=id&print=1)
+  var params = new URLSearchParams(window.location.search);
+  var urlLang = params.get('lang');
+  var urlView = params.get('view');
+  var initialLang = (urlLang === 'en' || urlLang === 'id') ? urlLang : (read('lang') || defaults.lang);
+  var initialView = (urlView === 'full' || urlView === 'resume') ? urlView : (read('view') || defaults.view);
+
+  apply('lang', initialLang);
+  apply('view', initialView);
 
   var stored = read('theme');
   if (stored) root.setAttribute('data-theme', stored);
@@ -253,6 +572,94 @@
     root.setAttribute('data-theme', next);
     write('theme', next);
   });
+
+  // Dropdown menu logic
+  var menuBtn = document.getElementById('print-menu-btn');
+  var dropdown = document.getElementById('print-dropdown');
+  var menuWrap = document.getElementById('print-menu-wrap');
+
+  function toggleMenu(show) {
+    if (!dropdown || !menuBtn) return;
+    var isOpen = show !== undefined ? show : !dropdown.classList.contains('open');
+    dropdown.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  if (menuBtn && dropdown && menuWrap) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!menuWrap.contains(e.target)) {
+        toggleMenu(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        toggleMenu(false);
+      }
+    });
+  }
+
+  // Print execution & dynamic PDF filename handling
+  var originalTitle = document.title;
+  function updatePrintTitle() {
+    var v = root.getAttribute('data-view') || 'full';
+    var l = root.getAttribute('data-lang') || 'en';
+    if (v === 'resume') {
+      document.title = (l === 'id' ? 'Resume - ' : 'Resume - ') + '{{ meta.name }} (' + l.toUpperCase() + ')';
+    } else {
+      document.title = (l === 'id' ? 'CV Lengkap - ' : 'Full CV - ') + '{{ meta.name }} (' + l.toUpperCase() + ')';
+    }
+  }
+
+  window.addEventListener('beforeprint', updatePrintTitle);
+  window.addEventListener('afterprint', function () {
+    document.title = originalTitle;
+  });
+
+  function printWithView(type) {
+    toggleMenu(false);
+    if (type) {
+      apply('view', type);
+      write('view', type);
+    }
+    updatePrintTitle();
+    setTimeout(function () {
+      window.print();
+    }, 100);
+  }
+
+  var btnPrintCurrent = document.getElementById('action-print-current');
+  if (btnPrintCurrent) {
+    btnPrintCurrent.addEventListener('click', function () {
+      printWithView();
+    });
+  }
+
+  var btnPrintFull = document.getElementById('action-print-full');
+  if (btnPrintFull) {
+    btnPrintFull.addEventListener('click', function () {
+      printWithView('full');
+    });
+  }
+
+  var btnPrintResume = document.getElementById('action-print-resume');
+  if (btnPrintResume) {
+    btnPrintResume.addEventListener('click', function () {
+      printWithView('resume');
+    });
+  }
+
+  // Auto-trigger print if requested via query parameter ?print=1
+  if (params.has('print')) {
+    setTimeout(function () {
+      window.print();
+    }, 400);
+  }
 
   // The page carries both languages, so a section key cannot be a DOM id
   // without duplicating it. Resolve #talks (etc.) against the visible article.

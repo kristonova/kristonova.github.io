@@ -555,7 +555,7 @@ teaching:
         - Taught a 16-student workshop on the Hadoop ecosystem — single-node and fully distributed cluster installation, HDFS, MapReduce, and YARN.
         - Designed the curriculum and coordinated exams and grading.
       id:
-        - Mengajar workshop intensif bagi 16 mahasiswa mengenai ekosistem Hadoop: instalasi klaster single-node dan terdistribusi, HDFS, MapReduce, hingga YARN.
+        - "Mengajar workshop intensif bagi 16 mahasiswa mengenai ekosistem Hadoop: instalasi klaster single-node dan terdistribusi, HDFS, MapReduce, hingga YARN."
         - Merancang kurikulum pembelajaran praktik, menyusun modul ajar, serta mengoordinasikan evaluasi dan penilaian.
 
   - org: SMA Negeri 8 Yogyakarta
@@ -569,7 +569,7 @@ teaching:
         - Prepared ~15 students per semester for the Indonesian Informatics Olympiad in discrete mathematics, C++ programming, and algorithm design and analysis.
         - Built the curriculum to Olympiad standards and coordinated exams and grading.
       id:
-        - Membina dan melatih ~15 siswa per semester dalam persiapan Tim Olimpiade Sains Nasional (OSN) bidang Informatika: matematika diskret, pemrograman C++, serta desain dan analisis algoritma efisien.
+        - "Membina dan melatih ~15 siswa per semester dalam persiapan Tim Olimpiade Sains Nasional (OSN) bidang Informatika: matematika diskret, pemrograman C++, serta desain dan analisis algoritma efisien."
         - Menyusun materi kurikulum pelatihan sesuai standar olimpiade serta memimpin evaluasi dan penilaian berkala.
 
 # -----------------------------------------------------------------------------
