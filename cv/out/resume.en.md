@@ -8,15 +8,16 @@ Yogyakarta, Indonesia · vista.indonesia@gmail.com
 
 ## Profile
 
-Data scientist and enterprise data architect with 8+ years designing national-scale data systems for Indonesian ministries and state-owned enterprises, and CEO and co-founder of a data analytics training and consulting firm. M.Sc. in Data Science from EURECOM, France, with thesis and internship work on LLM-based support for high-performance computing. Delivered TOGAF data architectures for the Ministry of Health, the National Energy Council, and the state pharmaceutical holding; trained and assessed 340+ civil servants, executives, and students.
+Data scientist and enterprise data architect with 8+ years designing national-scale data systems for Indonesian ministries and state-owned enterprises, and CEO and co-founder of Sadasa Academy, a data analytics training and consulting firm. M.Sc. in Data Science from EURECOM, France, with thesis and internship work on LLM-based support for high-performance computing. Delivered TOGAF data architectures for the Ministry of Health, the National Energy Council, and the state pharmaceutical holding; trained and assessed 340+ civil servants, executives, and students.
 
 ## Professional Experience
 
-**EFISON Lisan Teknologi — HPC & AI Engineer (M.Sc. Internship)** — Feb 2026 – Jul 2026
-*Indonesia*
+**EFISON Lisan Teknologi — HPC & AI Engineer (M.Sc. Internship)** — Feb 2026 – Jun 2026
+*Semarang, Indonesia*
 
-- Built a large language model (LLM) prototype for level-1 high-performance computing (HPC) user support, automating first-line responses to HPC cluster queries.
-- Delivered the work as the EURECOM M.Sc. thesis under the supervision of Simone Rossi.
+- Built a proof-of-concept RAG chatbot on Telegram that automates level-1 user support for the ALELEON Supercomputer, answering only from its official wiki and generating Slurm job scripts from natural-language requests.
+- Designed the microservices stack (bge-m3 embeddings, Qdrant hybrid search, ColBERT reranking, Qwen3.5-35B served by vLLM on AMD ROCm) on an ASUS AMD Radeon AI PRO R9700 GPU.
+- Reached 81.8% accuracy on a 55-question domain test set (93.3% on refusing out-of-scope questions); delivered as the EURECOM M.Sc. thesis under Prof. Simone Rossi and Wilson Lisan.
 
 **PT Sadasa Akademi Indonesia (Sadasa Academy) — Chief Executive Officer & Co-founder** — Feb 2019 – Present
 *Yogyakarta, Indonesia*
@@ -31,7 +32,7 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
   - Assessed the IT competency of 183 civil servants at the Directorate of Treasury Information Systems and Technology (SITP) against SKKNI national competency standards.
 - **PT Bio Farma (Persero) — Data Architect Project Manager** (Mar 2022 – Sep 2022)
   - Led the business architect and data architect teams delivering the TOGAF data architecture for Indonesia's state-owned pharmaceutical holding.
-  - Ran requirements interviews with 14 member companies across 9 value chains, from Board of Directors down to BoD-2.
+  - Ran requirements interviews with 14 member companies across 9 value chains, from the Board of Directors down to BoD-2.
 - **Perumda Air Minum Tirta Khatulistiwa (PDAM Pontianak) — IT Master Plan Advisor** (Apr 2022 – Aug 2022)
   - Authored the IT division master plan across business, data, application, and technology architecture using TOGAF.
   - Specified the target cloud infrastructure architecture in collaboration with AWS.
@@ -44,7 +45,7 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
   - Delivered within the SINAR consortium of USAID, the National Energy Council, and PT WeSolve Solusi Indonesia.
 - **Komisi Pemberantasan Korupsi (KPK) — Data Analyst** (Jun 2020 – Dec 2020)
   - Advised on using national ID numbers to improve social assistance and subsidy targeting across three provinces.
-  - Translated technical findings for governors and provincial secretaries, bridging the engineering team and policy makers.
+  - Translated technical findings for governors and provincial secretaries, bridging the engineering team and policymakers.
 
 ## Education
 
@@ -52,7 +53,7 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 *Sophia Antipolis, France*
 
 - Graduated 29 July 2026.
-- Thesis: “Development of a Large Language Model (LLM) Prototype for L1 High-Performance Computing (HPC) Support” — supervised by Simone Rossi.
+- Thesis: “Development of a Large Language Model (LLM) Prototype for L1 High-Performance Computing (HPC) Support” — internship at EFISON Lisan Teknologi, supervised by Prof. Simone Rossi and Wilson Lisan; defended 2 July 2026.
 - Coursework focus: big data, data science, and data analytics.
 - Funded by the LPDP Scholarship (PK-237), Indonesia Endowment Fund for Education.
 

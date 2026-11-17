@@ -8,7 +8,7 @@ Yogyakarta, Indonesia · vista.indonesia@gmail.com
 
 ## Profile
 
-Data scientist and enterprise data architect with 8+ years designing national-scale data systems for Indonesian ministries and state-owned enterprises, and CEO and co-founder of a data analytics training and consulting firm. M.Sc. in Data Science from EURECOM, France, with thesis and internship work on LLM-based support for high-performance computing. Delivered TOGAF data architectures for the Ministry of Health, the National Energy Council, and the state pharmaceutical holding; trained and assessed 340+ civil servants, executives, and students.
+Data scientist and enterprise data architect with 8+ years designing national-scale data systems for Indonesian ministries and state-owned enterprises, and CEO and co-founder of Sadasa Academy, a data analytics training and consulting firm. M.Sc. in Data Science from EURECOM, France, with thesis and internship work on LLM-based support for high-performance computing. Delivered TOGAF data architectures for the Ministry of Health, the National Energy Council, and the state pharmaceutical holding; trained and assessed 340+ civil servants, executives, and students.
 
 ## Education
 
@@ -16,7 +16,7 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 *Sophia Antipolis, France*
 
 - Graduated 29 July 2026.
-- Thesis: “Development of a Large Language Model (LLM) Prototype for L1 High-Performance Computing (HPC) Support” — supervised by Simone Rossi.
+- Thesis: “Development of a Large Language Model (LLM) Prototype for L1 High-Performance Computing (HPC) Support” — internship at EFISON Lisan Teknologi, supervised by Prof. Simone Rossi and Wilson Lisan; defended 2 July 2026.
 - Coursework focus: big data, data science, and data analytics.
 - Funded by the LPDP Scholarship (PK-237), Indonesia Endowment Fund for Education.
 
@@ -27,6 +27,23 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 - Thesis: “Data Preservation Process in Big Data Environment” — advised by Dr. Mardhani Riasetiawan; published at IEEE ICST 2018.
 
 ## Research Experience
+
+**M.Sc. Thesis — LLM Prototype for L1 High-Performance Computing (HPC) Support — EURECOM, with EFISON Lisan Teknologi** — Feb 2026 – Jul 2026
+*Principal Investigator*
+
+- Studied whether domain-specific RAG can deliver reliable L1 support for a national HPC facility on a single consumer-grade AMD GPU, using the ALELEON Supercomputer wiki (411 documents) as the only knowledge source.
+- Benchmarked dense, sparse, multi-vector, and hybrid retrieval in Qdrant over 69 queries: hybrid retrieval gave the best balance of recall and indexing cost, while LLM generation accounted for over 99% of end-to-end latency (about 8.8 s per answer), so faster retrieval could not speed up the system.
+- Load-tested the service under concurrent users: throughput stayed at about 0.05 requests per second and average latency rose from 20.4 s to 230.6 s at 16 concurrent users, showing the single-GPU inference engine is compute-bound.
+- Designed a four-level accuracy evaluation (direct facts, multi-chunk, reasoning, anti-hallucination) graded with the company supervisor: 81.8% overall, with reasoning at 60% limited mainly by outdated and inconsistent wiki content.
+- Thesis report “Development of a Large Language Model (LLM) Prototype for L1 High-Performance Computing (HPC) Support”, defended on 2 July 2026; supervised by Prof. Simone Rossi and Wilson Lisan.
+
+**M.Sc. Semester Project — KV Cache Compression for Text-to-SQL with LLMs — EURECOM, Data Science Department** — Sep 2025 – Feb 2026
+*Student Researcher (team of two)*
+
+- Migrated the long-context NL2SQL framework lc-nl2sql (“Is Long Context All You Need?”, VLDB 2025) from Vertex AI/Gemini to local open-weight inference through an abstract model interface, giving direct access to the model's KV cache.
+- Integrated NVIDIA kvpress to compare query-aware FINCH against query-agnostic Expected Attention compression, running Qwen3-4B on an H100 cluster across 72 configurations: 8 cumulative ablation scenarios × 4 compression ratios plus an uncompressed baseline, on a difficulty-stratified 132-question BIRD dev subset.
+- FINCH at a 0.6 compression ratio reached 51.52% execution accuracy, above the uncompressed baseline (49.24%), while a 0.8 ratio fell to 43.94%; compression also prevented out-of-memory failures in the self-correction stage.
+- Supervised by Prof. Paolo Papotti and Giulio Corallo (PhD); delivered with Tommaso La Malfa as code, final report, and presentation with demo.
 
 **Bachelor Thesis — Data Preservation in Big Data Environments — Universitas Gadjah Mada** — Feb 2017 – Nov 2017
 *Principal Investigator*
@@ -49,11 +66,12 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 
 ## Professional Experience
 
-**EFISON Lisan Teknologi — HPC & AI Engineer (M.Sc. Internship)** — Feb 2026 – Jul 2026
-*Indonesia*
+**EFISON Lisan Teknologi — HPC & AI Engineer (M.Sc. Internship)** — Feb 2026 – Jun 2026
+*Semarang, Indonesia*
 
-- Built a large language model (LLM) prototype for level-1 high-performance computing (HPC) user support, automating first-line responses to HPC cluster queries.
-- Delivered the work as the EURECOM M.Sc. thesis under the supervision of Simone Rossi.
+- Built a proof-of-concept RAG chatbot on Telegram that automates level-1 user support for the ALELEON Supercomputer, answering only from its official wiki and generating Slurm job scripts from natural-language requests.
+- Designed the microservices stack (bge-m3 embeddings, Qdrant hybrid search, ColBERT reranking, Qwen3.5-35B served by vLLM on AMD ROCm) on an ASUS AMD Radeon AI PRO R9700 GPU.
+- Reached 81.8% accuracy on a 55-question domain test set (93.3% on refusing out-of-scope questions); delivered as the EURECOM M.Sc. thesis under Prof. Simone Rossi and Wilson Lisan.
 
 **PT Sadasa Akademi Indonesia (Sadasa Academy) — Chief Executive Officer & Co-founder** — Feb 2019 – Present
 *Yogyakarta, Indonesia*
@@ -74,7 +92,7 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
   - Assessed ~60 candidates from universities across Makassar under the Digital Talent Scholarship programme of the Ministry of Communication and Information Technology.
 - **PT Bio Farma (Persero) — Data Architect Project Manager** (Mar 2022 – Sep 2022)
   - Led the business architect and data architect teams delivering the TOGAF data architecture for Indonesia's state-owned pharmaceutical holding.
-  - Ran requirements interviews with 14 member companies across 9 value chains, from Board of Directors down to BoD-2.
+  - Ran requirements interviews with 14 member companies across 9 value chains, from the Board of Directors down to BoD-2.
 - **Perumda Air Minum Tirta Khatulistiwa (PDAM Pontianak) — IT Master Plan Advisor** (Apr 2022 – Aug 2022)
   - Authored the IT division master plan across business, data, application, and technology architecture using TOGAF.
   - Specified the target cloud infrastructure architecture in collaboration with AWS.
@@ -86,23 +104,23 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
   - Designed Indonesia's national energy data model and entity-relationship diagram for SPEND (Sistem Pemantauan Energi Nasional dan Daerah).
   - Delivered within the SINAR consortium of USAID, the National Energy Council, and PT WeSolve Solusi Indonesia.
 - **Badan Siber dan Sandi Negara (BSSN) — Project Manager** (Jul 2021 – Oct 2021)
-  - Managed development of an information-protection application for the digital economy sector against the ISO/IEC 27001 framework.
+  - Managed the development of an information-protection application for the digital economy sector against the ISO/IEC 27001 framework.
   - Produced the national guidebook “Panduan Penilaian Risiko Keamanan Informasi”, delivered with BSSN's Digital Economy Protection Directorate and ADITIF.
 - **Dinas Komunikasi dan Informatika Provinsi DIY — Jogja Center — Project Manager & Data Scientist** (Jul 2021 – Dec 2021)
-  - Led a big-data analytics and decision-support system for the Jogja Smart Province programme, executed with the CRISP-DM framework.
+  - Led the development of a big data analytics and decision-support system for the Jogja Smart Province programme, executed with the CRISP-DM framework.
   - <http://dss.jogjaprov.go.id/>
 - **Badan Meteorologi, Klimatologi, dan Geofisika (BMKG) — Trainer** (Mar 2021 – Apr 2021)
-  - Trained 60 civil servants at the Climatology Deputate in data management, big data fundamentals, R, and Tableau.
+  - Trained 60 civil servants at the Office of the Deputy for Climatology in data management, big data fundamentals, R, and Tableau.
 - **RSUP Dr. Sardjito — Data Management Consultant** (Sep 2020 – Oct 2020)
-  - Facilitated focus group discussions on health data management with policy makers, data owners, and technical teams.
+  - Facilitated focus group discussions on health data management with policymakers, data owners, and technical teams.
   - Presented the resulting data management framework to the hospital's board of directors.
 - **Badan Siber dan Sandi Negara (BSSN) — Enterprise Architecture Consultant** (Aug 2020 – Oct 2020)
-  - Developed the bureau's data enterprise architecture using TOGAF and catalogued its database estate.
+  - Developed the agency's data enterprise architecture using TOGAF and catalogued its database estate.
 - **Komisi Pemberantasan Korupsi (KPK) — Data Analyst** (Jun 2020 – Dec 2020)
   - Advised on using national ID numbers to improve social assistance and subsidy targeting across three provinces.
-  - Translated technical findings for governors and provincial secretaries, bridging the engineering team and policy makers.
+  - Translated technical findings for governors and provincial secretaries, bridging the engineering team and policymakers.
 - **Kementerian PPN / BAPPENAS — Trainer** (Jul 2020 – Sep 2020)
-  - Trained 40 analysts across echelons in data management, big data fundamentals, R, visualisation, machine learning, and text mining.
+  - Trained 40 analysts across ministry divisions and seniority levels in data management, big data fundamentals, R, visualisation, machine learning, and text mining.
   - <https://www.youtube.com/watch?v=WWqeIQz_Q7U>
 - **Dinas Komunikasi dan Informatika Provinsi DIY — Data Scientist** (May 2020 – Dec 2020)
   - Built the executive dashboard for COVID-19 social assistance stimulus, covering aggregation, standardisation, cleansing, and visualisation in R and Tableau.
@@ -117,7 +135,7 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 
 **Universitas Gadjah Mada — Faculty of Mathematics and Natural Sciences — Practitioner Lecturer (Dosen Praktisi) — AI-Based Marketing and Customer Management** — Aug 2026 – Jan 2027
 
-- Teach MII263006 “Pemasaran dan Pelanggan Berbasis AI” (AI-Based Marketing and Customer) in the Bachelor of Computer Science programme, odd semester 2026/2027.
+- Teach MII263006 “Pemasaran dan Pelanggan Berbasis AI” (AI-Based Marketing and Customer Management) in the Bachelor of Computer Science programme, odd semester 2026/2027.
 - Course coordinator: Prof. Dr. Azhari, M.T.
 
 **Universitas Gadjah Mada — Faculty of Dentistry (FKG) — Practitioner Lecturer (Dosen Praktisi) — Digital Dentistry and Automated Detection** — Aug 2026 – Jan 2027
@@ -209,7 +227,7 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 **Asosiasi Digital Kreatif (ADITIF) — Government Relations** — May 2019 – Jun 2022
 *Yogyakarta, Indonesia*
 
-- Built and maintained relationships with ministries, state governments, state-owned companies, and local governments to advocate for Indonesia's digital creative industry.
+- Built and maintained relationships with ministries, state-owned companies, and provincial and local governments to advocate for Indonesia's digital creative industry.
 
 ## Skills
 

@@ -392,7 +392,7 @@
         <h3>{{ p.name[lang] }}</h3>
         <p>
           {{ p.what[lang] }}
-          <span class="evidence">{{ p.evidence }}</span>
+          <span class="evidence">{{ p.evidence[lang] if p.evidence is mapping else p.evidence }}</span>
         </p>
       </div>
       {%- endfor %}

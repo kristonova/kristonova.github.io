@@ -47,6 +47,7 @@ L = {
     "graduated": {"en": "Graduated", "id": "Lulus"},
     "expired": {"en": "expired", "id": "kedaluwarsa"},
     "issued": {"en": "issued", "id": "terbit"},
+    "years": {"en": "y", "id": "\u00a0thn"},
     "reg": {"en": "Reg.", "id": "No. Reg."},
     "resume_note": {"en": "Résumé", "id": "Résumé"},
     # print & download menu
@@ -57,7 +58,7 @@ L = {
     "download_resume_docx": {"en": "Download Résumé (.docx)", "id": "Unduh Résumé (.docx)"},
     "download_cv_docx": {"en": "Download Full CV (.docx)", "id": "Unduh CV Lengkap (.docx)"},
     # section titles
-    "summary": {"en": "Profile", "id": "Profil Profesional"},
+    "summary": {"en": "Profile", "id": "Ringkasan Profil"},
     "education": {"en": "Education", "id": "Pendidikan"},
     "research": {"en": "Research Experience", "id": "Pengalaman Riset"},
     "publications": {"en": "Publications", "id": "Publikasi Ilmiah"},
@@ -67,7 +68,7 @@ L = {
     "certifications": {"en": "Professional Certifications", "id": "Sertifikasi Profesi"},
     "training": {"en": "Professional Training", "id": "Pelatihan Profesional"},
     "community": {"en": "Community Service & Leadership", "id": "Organisasi & Pengabdian Masyarakat"},
-    "skills": {"en": "Skills", "id": "Keahlian Teknis"},
+    "skills": {"en": "Skills", "id": "Keahlian"},
     "languages": {"en": "Languages", "id": "Kemampuan Bahasa"},
     "awards": {"en": "Honours & Awards", "id": "Penghargaan & Beasiswa"},
     "engagements": {"en": "Selected client engagements", "id": "Proyek & Klien Terpilih"},
@@ -79,7 +80,7 @@ TALK_KIND = {
     "guest_lecture":   {"en": "Guest Lecture", "id": "Kuliah Tamu"},
     "seminar":         {"en": "Seminar", "id": "Seminar"},
     "webinar":         {"en": "Webinar", "id": "Webinar"},
-    "workshop":        {"en": "Workshop", "id": "Workshop / Lokakarya"},
+    "workshop":        {"en": "Workshop", "id": "Lokakarya"},
     "fgd":             {"en": "Focus Group Discussion", "id": "Focus Group Discussion (FGD)"},
     "policy_meeting":  {"en": "Policy Coordination Meeting", "id": "Rapat Koordinasi Kebijakan"},
 }
@@ -275,7 +276,7 @@ def build_model(d: dict) -> dict:
             status = f", {L['expired'][lang]}" if c.get("expired") else ""
             r = [run(pick(c["name"], lang), b=True),
                  run(f" — {c['issuer']}, {L['reg'][lang]} {c['reg']}"),
-                 run(f" ({L['issued'][lang]} {issued}, {c['valid_years']}y{status})")]
+                 run(f" ({L['issued'][lang]} {issued}, {c['valid_years']}{L['years'][lang]}{status})")]
             note = pick(c.get("note"), lang)
             if note:
                 r.append(run(f" {note}", i=True))
@@ -297,7 +298,7 @@ def build_model(d: dict) -> dict:
     for s in d["skills"]:
         entries.append(line(s["tier"], bilingual(
             lambda lang, s=s: [run(f"{pick(s['group'], lang)}: ", b=True),
-                               run(", ".join(s["items"]))])))
+                               run(", ".join(pick(it, lang) for it in s["items"]))])))
     sections["skills"] = entries
 
     # --- languages ---------------------------------------------------------
