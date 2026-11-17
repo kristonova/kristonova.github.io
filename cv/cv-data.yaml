@@ -594,6 +594,9 @@ publications:
 # -----------------------------------------------------------------------------
 # kind -> label is resolved in build.py, so titles are stored once only.
 talks:
+  - {date: 2026-11-10, kind: guest_lecture, title: "NL2SQL and KV-Cache Compression — Research Trends in Computer Science and Electronics (Tren Penelitian Ilmu Komputer dan Elektronika)", venue: "Bachelor of Computer Science, Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada", tier: 2}
+  - {date: 2026-10-20, kind: seminar, title: "Strategi Pemanfaatan AI untuk Peningkatan Kapasitas Usaha — UMKM Go Smart: Kenali Gizi, Optimalkan AI", venue: "Kantor Wilayah Direktorat Jenderal Perbendaharaan Provinsi DIY, Kementerian Keuangan RI — Treasury Learning Center Yogyakarta", tier: 1}
+  - {date: 2026-09-16, kind: policy_meeting, title: "Cetak Biru Strategi Transformasi Digital Sosial 2026–2029: Rekam Sosial Elektronik Terintegrasi Sepanjang Siklus Hidup Warga", venue: "Rapat Koordinasi Pengembangan Inovasi Digital dalam Mendukung Peningkatan Kualitas DTSEN, Kementerian Koordinator Bidang Pemberdayaan Masyarakat RI, Jakarta", tier: 1}
   - {date: 2026-08-21, kind: general_lecture, title: "Alumni Sharing — Graduation of the Bachelor Programme, Period IV, Academic Year 2025/2026", venue: "Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada", url: "https://www.youtube.com/live/C0M5i3qEceo", tier: 2}
   - {date: 2026-08-13, kind: workshop, title: "Data Art Workshop 2026", venue: "Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada", tier: 2}
   - {date: 2026-04-11, kind: seminar, title: "SINTESA — Seminar Nasional Inovasi Teknologi dan Sistem Informasi", venue: "Universitas Dian Nuswantoro, Kediri", tier: 1}

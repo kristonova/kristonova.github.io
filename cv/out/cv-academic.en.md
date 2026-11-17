@@ -154,6 +154,9 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 
 ## Invited Talks, Lectures & Seminars
 
+- **Guest Lecture**, “NL2SQL and KV-Cache Compression — Research Trends in Computer Science and Electronics (Tren Penelitian Ilmu Komputer dan Elektronika),” *Bachelor of Computer Science, Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada*. (Nov 2026)
+- **Seminar**, “Strategi Pemanfaatan AI untuk Peningkatan Kapasitas Usaha — UMKM Go Smart: Kenali Gizi, Optimalkan AI,” *Kantor Wilayah Direktorat Jenderal Perbendaharaan Provinsi DIY, Kementerian Keuangan RI — Treasury Learning Center Yogyakarta*. (Oct 2026)
+- **Policy Coordination Meeting**, “Cetak Biru Strategi Transformasi Digital Sosial 2026–2029: Rekam Sosial Elektronik Terintegrasi Sepanjang Siklus Hidup Warga,” *Rapat Koordinasi Pengembangan Inovasi Digital dalam Mendukung Peningkatan Kualitas DTSEN, Kementerian Koordinator Bidang Pemberdayaan Masyarakat RI, Jakarta*. (Sep 2026)
 - **General Lecture**, “Alumni Sharing — Graduation of the Bachelor Programme, Period IV, Academic Year 2025/2026,” *Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada*. (Aug 2026) <https://www.youtube.com/live/C0M5i3qEceo>
 - **Workshop**, “Data Art Workshop 2026,” *Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada*. (Aug 2026)
 - **Seminar**, “SINTESA — Seminar Nasional Inovasi Teknologi dan Sistem Informasi,” *Universitas Dian Nuswantoro, Kediri*. (Apr 2026)
