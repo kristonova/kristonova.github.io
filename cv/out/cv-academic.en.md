@@ -174,9 +174,11 @@ Data scientist and enterprise data architect with 8+ years designing national-sc
 
 - **Guest Lecture**, “NL2SQL and KV-Cache Compression — Research Trends in Computer Science and Electronics (Tren Penelitian Ilmu Komputer dan Elektronika),” *Bachelor of Computer Science, Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada*. (Nov 2026)
 - **Seminar**, “Strategi Pemanfaatan AI untuk Peningkatan Kapasitas Usaha — UMKM Go Smart: Kenali Gizi, Optimalkan AI,” *Kantor Wilayah Direktorat Jenderal Perbendaharaan Provinsi DIY, Kementerian Keuangan RI — Treasury Learning Center Yogyakarta*. (Oct 2026)
+- **Invited Talk**, “Insight Session: Sustainable Life — Malam Kangen FMIPA UGM 2026, 71st Dies Natalis of the Faculty,” *Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada*. (Sep 2026)
 - **Policy Coordination Meeting**, “Cetak Biru Strategi Transformasi Digital Sosial 2026–2029: Rekam Sosial Elektronik Terintegrasi Sepanjang Siklus Hidup Warga,” *Rapat Koordinasi Pengembangan Inovasi Digital dalam Mendukung Peningkatan Kualitas DTSEN, Kementerian Koordinator Bidang Pemberdayaan Masyarakat RI, Jakarta*. (Sep 2026)
+- **Expert Talk**, “Sains Data dan Penerapannya di Dunia Penelitian dan Industri — expert talk and project feedback for Grade 10–11 data science projects,” *Praxis High School (Yayasan Pendidikan STEAM Yogyakarta), Sleman*. (Sep 2026)
 - **General Lecture**, “Alumni Sharing — Graduation of the Bachelor Programme, Period IV, Academic Year 2025/2026,” *Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada*. (Aug 2026) <https://www.youtube.com/live/C0M5i3qEceo>
-- **Workshop**, “Data Art Workshop 2026,” *Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada*. (Aug 2026)
+- **Workshop**, “Data Art Workshop 2026 — part of the Data Art Exhibition 2026,” *Faculty of Mathematics and Natural Sciences, Universitas Gadjah Mada & Keluarga Alumni FMIPA UGM (KAMIPAGAMA)*. (Aug 2026)
 - **Seminar**, “SINTESA — Seminar Nasional Inovasi Teknologi dan Sistem Informasi,” *Universitas Dian Nuswantoro, Kediri*. (Apr 2026)
 - **Webinar**, “Implementing AI for Business Process — Bean to Brilliance programme for Kopi Kenangan,” *DDK Dharma Korporasi*. (Sep 2025)
 - **Guest Lecture**, “Practitioner Lecture for Computer Science students,” *Faculty of Engineering and Information Technology, Universitas Jenderal Achmad Yani Yogyakarta*. (Jul 2024)

@@ -27,3 +27,5 @@ dist-ssr
 # Python virtualenv
 .venv/
 __pycache__/
+
+_archive/

@@ -83,6 +83,8 @@ TALK_KIND = {
     "workshop":        {"en": "Workshop", "id": "Lokakarya"},
     "fgd":             {"en": "Focus Group Discussion", "id": "Focus Group Discussion (FGD)"},
     "policy_meeting":  {"en": "Policy Coordination Meeting", "id": "Rapat Koordinasi Kebijakan"},
+    "expert_talk":     {"en": "Expert Talk", "id": "Expert Talk"},
+    "invited_talk":    {"en": "Invited Talk", "id": "Pembicara Tamu"},
 }
 
 # Section order per profile.
