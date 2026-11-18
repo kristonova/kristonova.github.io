@@ -109,6 +109,28 @@ Verify with:
 python -c "import docx; d=docx.Document('cv/out/resume.en.docx'); print(len(d.tables))"  # 0
 ```
 
+## DOCX typesetting
+
+The Word files are designed, not just dumped, but only with features an ATS
+reads as plain text:
+
+- **Built-in styles carry the hierarchy.** Name = `Title`, section = `Heading 1`,
+  role/degree = `Heading 2`, client engagement = `Heading 3`, bullets =
+  `List Bullet`. Restyle by editing `style(...)` calls in `render_docx`, never
+  with per-run overrides, so Word's Styles pane stays meaningful.
+- **Rules are paragraph borders; the date column is a hanging indent with a
+  tab stop.** Neither is a table, so `len(d.tables)` stays 0.
+- **Caps and letter-spacing are display-only** (`w:caps`). The text a parser
+  extracts is still "Professional Experience".
+- **Palette and fonts mirror the web tokens:** ink `#16202e`, accent
+  `#1f4e79`, rules `#b9c4d1`; Cambria for the name, Calibri for everything
+  else — both ship with every Office install, so nothing is substituted.
+- **A4, sizes per profile** in `DOCX_SCALE`. The résumé must stay at two pages
+  in both languages; the Indonesian one is the longer and binds first. If an
+  edit to `cv-data.yaml` pushes it to three, trim content before shrinking type.
+- **Schema order is enforced** before saving (`_schema_order`), because
+  python-docx appends XML children and Word rejects out-of-order ones.
+
 ## Certificates
 
 All four BNSP certificates run 3 years and have now lapsed. They are rendered
